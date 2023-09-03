@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* White background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.left-section {
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    background-color: #279dd7; /* Light Blue */
+    color: #fff; /* White text color */
+}
+
+.left-section img {
+    max-width: 100px;
+}
+
+.security-info {
+    margin-top: 20px;
+}
+
+.security-info img {
+    max-width: 150px;
+}
+
+.right-section {
+    padding: 20px;
+    width: 50%;
+    background-color: #184b81; /* Dark Blue */
+    color: #fff; /* White text color */
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-form a,
+.login-form button {
+    display: inline-block; /* Display elements in one line */
+    vertical-align: middle; /* Align elements vertically */
+    margin: 10px; /* Add margin between elements for spacing */
+}
+
+.login-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form #label-user-id {
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    color: #fff; /* White text color */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-button {
+    background-color: #279dd7; /* Light Blue */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.additional-links {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.additional-links a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+}
+
+/* Hover effect for links */
+.additional-links a:hover {
+    text-decoration: underline;
+}

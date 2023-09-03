@@ -1,0 +1,42 @@
+/* styles/style.css */
+
+/* Reset default list styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the top navigation bar */
+.top-nav {
+    font-family: Arial, sans-serif;
+    color: #333; /* Light black text color */
+    padding: 10px 0;
+}
+
+.top-nav ul {
+    text-align: right; /* Align links to the right */
+}
+
+.top-nav ul li {
+    display: inline;
+    margin-left: 20px; /* Add space between links */
+}
+
+.top-nav ul li:first-child {
+    margin-left: 0; /* Remove margin for the first link */
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #333; /* Light black text color */
+    font-weight: bold;
+}
+
+/* Add a horizontal line below the navigation bar */
+.top-nav::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #333; /* Light black border color */
+    margin-top: 5px;
+}
