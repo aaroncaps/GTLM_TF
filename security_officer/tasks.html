@@ -5,7 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SO - TASKS</title>
+    <!-- css -->
     <link rel="stylesheet" href="../styles/so_tasks.css">
+
+    <!-- js -->
+    <script src="../js/so_tasks.js"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -25,11 +32,24 @@
         </div>
         <div class="right_content">
             <div class="upper_navbar">
+                <!-- hamurger menu starts -->
+                <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+                <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+                <!-- hamburger menu ends -->
                 <a href="#">Profile</a>
                 <a href="#">Help & Support</a>
                 <a href="#">Logout</a>
             </div>
             <div class="main_content">
+                <div class="mobile_menu">
+                    <ul>
+                        <a href="#"><li>Tasks</li></a>
+                        <a href="#"><li>Reports</li></a>
+                        <a href="#"><li>Profile</li></a>
+                        <a href="#"><li>Help & Support</li></a>
+                        <a href="#"><li>Logout</li></a>
+                    </ul>
+                </div>
                 <!-- put your code here -->
                 <h2>Tasks</h2>
             </div>
