@@ -7,9 +7,10 @@
     <title>SO - TASKS</title>
     <!-- css -->
     <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
     <!-- js -->
-    <script src="../js/so_tasks.js"></script>
+    <script src="../js/core.js"></script>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
 
@@ -25,9 +26,7 @@
             <ul>
                 <a href="tasks.html"><li>Tasks</li></a>
                 <a href="#"><li>Reports</li></a>
-                <a href="#"><li>Item 03</li></a>
-                <a href="#"><li>Item 04</li></a>
-                <a href="#"><li>Item 05</li></a>
+                <a href="#"><li>Groups</li></a>
             </ul>
         </div>
         <div class="right_content">
@@ -45,6 +44,7 @@
                     <ul>
                         <a href="#"><li>Tasks</li></a>
                         <a href="#"><li>Reports</li></a>
+                        <a href="#"><li>Groups</li></a>
                         <a href="#"><li>Profile</li></a>
                         <a href="#"><li>Help & Support</li></a>
                         <a href="#"><li>Logout</li></a>
@@ -52,90 +52,94 @@
                 </div>
                 <h2>Tasks</h2>
                 <!-- put your code here -->
-                <div>
-                  <label for="status-filter">Filtered by status:</label>
-                  <select id="status-filter">
-                    <option value="assigned">Assigned</option>
-                    <option value="unassigned">Unassigned</option>
-                  </select>
-                  <table border="1">
-                    <thead>
-                      <tr>
-                        <th>Group ID</th>
-                        <th>Date Created</th>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Task Number</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>#G1234</td>
-                        <td>03-Sep-2023</td>
-                        <td>Team AAA</td>
-                        <td>Assigned</td>
-                        <td>#12390</td>
-                      </tr>
-                      <tr>
-                        <td>#G1235</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Hulk</td>
-                        <td>Unassigned</td>
-                        <td>-</td>
-                      </tr>
-                      <tr>
-                        <td>#G1236</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Azure</td>
-                        <td>Unassigned</td>
-                        <td>-</td>
-                      </tr>
-                      <tr>
-                        <td>#G1237</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team BBB</td>
-                        <td>Unassigned</td>
-                        <td>-</td>
-                      </tr>
-                      <tr>
-                        <td>#G1238</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Offense</td>
-                        <td>Assigned</td>
-                        <td>#12391</td>
-                      </tr>
-                      <tr>
-                        <td>#G1239</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Defense</td>
-                        <td>Assigned</td>
-                        <td>#12392</td>
-                      </tr>
-                      <tr>
-                        <td>#G1210</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Support</td>
-                        <td>Assigned</td>
-                        <td>#12393</td>
-                      </tr>
-                      <tr>
-                        <td>#G1211</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Komsat</td>
-                        <td>Assigned</td>
-                        <td>#12394</td>
-                      </tr>
-                      <tr>
-                        <td>#G2312</td>
-                        <td>02-Sep-2023</td>
-                        <td>Team Strong</td>
-                        <td>Assigned</td>
-                        <td>#12395</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <button type="submit">Create Group</button>
-                </div>
+                <form action="groups_create.html" method="GET">
+                  <div>
+                    <label for="status-filter">Filtered by status:</label>
+                    <select class="select-box">
+                      <option value="assigned">Assigned</option>
+                      <option value="unassigned">Unassigned</option>
+                    </select>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Group ID</th>
+                          <th>Date Created</th>
+                          <th>Name</th>
+                          <th>Status</th>
+                          <th>Task Number</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="#">#G1234</a></td>
+                          <td>03-Sep-2023</td>
+                          <td>Team AAA</td>
+                          <td>Assigned</td>
+                          <td>#12390</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1235</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Hulk</td>
+                          <td>Unassigned</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1236</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Azure</td>
+                          <td>Unassigned</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1237</td>
+                          <td>02-Sep-2023</td>
+                          <td>Team BBB</td>
+                          <td>Unassigned</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1238</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Offense</td>
+                          <td>Assigned</td>
+                          <td>#12391</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1239</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Defense</td>
+                          <td>Assigned</td>
+                          <td>#12392</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1210</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Support</td>
+                          <td>Assigned</td>
+                          <td>#12393</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G1211</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Komsat</td>
+                          <td>Assigned</td>
+                          <td>#12394</td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">#G2312</a></td>
+                          <td>02-Sep-2023</td>
+                          <td>Team Strong</td>
+                          <td>Assigned</td>
+                          <td>#12395</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="right-button">
+                      <button type="submit">Create Group</button>
+                    </div>
+                  </div>
+                </form>
             </div>
         </div>
     </div>
