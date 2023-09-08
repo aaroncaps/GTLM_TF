@@ -58,6 +58,11 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
 }
+/* ==================================================================
+CHECK THE CREATED CLASSES BELOW BEFORE YOU CREATE A NEW ONE. 
+DO NOT DELETE OR UPDATE THE CLASS
+Please reuse the classes below by placing it in a div or span tags.
+================================================================== */
 
 /* buttons after a table are set to the right */
 .right-button {
@@ -83,3 +88,7 @@ input[type="checkbox"] {
     background-color: #dadada; 
 
 }
+
+/* ==================================================================
+Insert your new class/id below and write your name 
+================================================================== */
