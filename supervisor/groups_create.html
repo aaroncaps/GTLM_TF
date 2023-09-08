@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SO - TASKS</title>
+  <!-- css -->
+  <link rel="stylesheet" href="../styles/navigation.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+
+  <!-- js -->
+  <script src="../js/core.js" defer></script>
+  <script src="../js/supervisor.js" defer></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- navbar begins -->
+  <div class="wrapper">
+    <div class="left_navbar">
+      <div class="logo">
+        <img src="../images/Logo.png" alt="" />
+      </div>
+      <ul>
+        <a href="tasks.html">
+          <li>Tasks</li>
+        </a>
+        <a href="reports.html">
+          <li>Reports</li>
+        </a>
+        <a href="groups.html">
+          <li>Groups</li>
+        </a>
+      </ul>
+    </div>
+    <div class="right_content">
+      <div class="upper_navbar">
+        <!-- hamurger menu starts -->
+        <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+        <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+        <!-- hamburger menu ends -->
+        <a href="#">Profile</a>
+        <a href="#">Help & Support</a>
+        <a href="#">Logout</a>
+      </div>
+      <div class="main_content">
+        <div class="mobile_menu">
+          <ul>
+            <a href="tasks.html">
+              <li>Tasks</li>
+            </a>
+            <a href="reports.html">
+              <li>Reports</li>
+            </a>
+            <a href="groups.html">
+              <li>Groups</li>
+            </a>
+            <a href="profile.html">
+              <li>Profile</li>
+            </a>
+            <a href="#">
+              <li>Help & Support</li>
+            </a>
+            <a href="#">
+              <li>Logout</li>
+            </a>
+          </ul>
+        </div>
+        <h2>Tasks</h2>
+        <!-- put your code here -->
+        <form id="myForm">
+          <label for="group-name">Group Name:</label>
+          <input type="text" id="group-name" name="group-name" required />
+          <br />
+
+          <h3>List of available Security Officers</h3>
+          <label for="date-from">Date From:</label>
+          <input type="date" id="date-from" name="date-from" required />
+          <label for="date-to">Date To:</label>
+          <input type="date" id="date-to" name="date-to" required />
+          <br />
+          <input type="text" id="search-input" name="search-input" placeholder="Search..." />
+          <button type="submit" id="search-button">Search</button>
+
+          <table id="table1">
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" id="selectAll1" onchange="selectAllCheckboxes('table1')" />
+                </th>
+                <th>User ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32112</td>
+                <td>Goola Wola</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32113</td>
+                <td>David Guteela</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32114</td>
+                <td>Usher Leeva</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32115</td>
+                <td>Gento Lomibao</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32116</td>
+                <td>Anderson Lee</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32117</td>
+                <td>Happy Forrest</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="right-button">
+            <button type="submit" onclick="cancelButton()">Cancel</button>
+            <button type="submit" id="createGroupBtn" onclick="confirmCreateGroup('table1')">
+              Create Group
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="cleardiv"></div>
+  <!-- -->
+</body>
+
+</html>

@@ -1,11 +1,14 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
 }
+
 .wrapper {
     width: 100%;
     overflow: auto;
     /* add image */
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url("../images/security2.jpg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("../images/security2.jpg");
     background-color: #cccccc;
     height: 100vh;
     background-position: center;
@@ -13,8 +16,11 @@ body{
     background-size: cover;
     position: relative;
 }
-
-.left_section_content{
+.login_logo img{
+    height: 70px;
+    width: 70px;
+}
+.left_section_content {
     margin: 5%;
     padding: 10%;
     border-radius: 5%;
@@ -23,7 +29,8 @@ body{
     color: white;
     font-family: 'Times New Roman', Times, serif;
 }
-.left_section_content p{
+
+.left_section_content p {
     text-align: justify;
 }
 
@@ -32,31 +39,40 @@ body{
     width: 60%;
     /* background-color: blue; */
 }
-.joinus{
+
+.joinus {
     text-decoration: none;
-    color:white;
-    background-color: #f44336;
+    color: white;
+    background-color: #184B81;
     padding: 10px;
     font-size: 20px;
     border-radius: 5px;
 }
-.joinus:hover{
-    color:#f44336;
-    background-color: rgb(247, 241, 241);
+
+.joinus:hover {
+    color: #184B81;
+    background-color: #D1D5DE;
     transition: color 0.8s ease-out;
     transition: background-color 0.8s ease-out;
 }
 
-.right_section{
+.joinus_mobile {
+    display: none
+}
+
+.right_section {
     float: right;
     width: 40%;
     /* background-color: red; */
 }
-.form_wrapper{
+.header_mobile{
+    display:none
+}
+.form_wrapper {
     /* background-color: red; */
     margin: 5%;
     margin-left: 0%;
-    margin-top:8%;
+    margin-top: 8%;
     padding: 10%;
     border-radius: 5%;
     height: 400px;
@@ -64,57 +80,107 @@ body{
     color: white;
     font-family: 'Times New Roman', Times, serif;
 }
-.form_wrapper label{
+
+.form_wrapper label {
     font-size: 30px;
 }
-.form_wrapper input{
+
+.form_wrapper input {
     width: 90%;
     height: 20px;
     /* border: 1px solid white; */
     border-radius: 5px;
-    padding:10px;
+    padding: 10px;
     margin: 10px 0px;
 }
-.form_wrapper input:hover{
-    border: 2px solid #f44336;
+
+.form_wrapper input:hover {
+    border: 2px solid #184B81;
 }
-.form_wrapper .login-button{
+
+.form_wrapper .login-button {
     font-size: 20px;
     margin: 10px 0px;
     font-family: 'Times New Roman', Times, serif;
-    padding:5px;
+    padding: 8px 5px;
     width: 30%;
-    background-color: rgb(230, 227, 221);
+    background-color: #D1D5DE;
     border-radius: 5px;
 }
-.form_wrapper .login-button:hover{
-    background-color: #f44336;
-    color: white;
+
+.form_wrapper .login-button:hover {
+    background-color: #184B81;
+    color: #D1D5DE;
+    transition: background-color 0.5s ease-out;
 }
-.form_wrapper .forgot-password{
+
+.form_wrapper .forgot-password {
     float: right;
     font-size: 20px;
     margin: 17px 15px;
     text-decoration: none;
     color: white;
 }
-.form_wrapper .forgot-password:hover{
+
+.form_wrapper .forgot-password:hover {
     color: #f44336;
+    transition: color 0.5s ease-out;
 }
-.contact_mainlink{
+
+.contact_mainlink {
     text-decoration: none;
-    color:white;
+    color: white;
 }
-.contact_mainlink:hover, .contact_us:hover{
-    color: #f44336;
-    background-color: rgb(247, 241, 241);
+
+.contact_mainlink:hover,
+.contact_us:hover {
+    color: #184B81;
+    background-color: #D1D5DE;
+    transition: color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
 }
-.contact_us{
-    margin-top:20px;
-    background-color: #f44336;
+
+.contact_us {
+    margin-top: 20px;
+    background-color: #184B81;
     padding: 5px 10px;
     border-radius: 5px;
 }
+
 .cleardiv {
     clear: both;
+}
+
+
+/* CSS for mobile version */
+@media (max-width: 1024px) {
+    .left_section {
+        width: 0%;
+        display: none;
+    }
+
+    .right_section {
+        width: 100%;
+    }
+    .header_mobile{
+        display: block;
+    }
+    .joinus_mobile {
+        display: block;
+        text-decoration: none;
+        color: white;
+        background-color: #184B81;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    .joinus_mobile:hover {
+        color: #184B81;
+        background-color: rgb(247, 241, 241);
+        transition: color 0.8s ease-out;
+        transition: background-color 0.8s ease-out;
+    }
+    .form_wrapper label{
+        font-size: 25px;
+    }
 }
