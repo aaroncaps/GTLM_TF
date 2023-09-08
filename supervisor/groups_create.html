@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="../styles/style.css">
 
   <!-- js -->
-  <script src="../js/core.js"></script>
+  <script src="../js/core.js" defer></script>
+  <script src="../js/supervisor.js" defer></script>
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
 
@@ -70,70 +71,72 @@
         </div>
         <h2>Tasks</h2>
         <!-- put your code here -->
-        <label for="group-name">Group Name:</label>
-        <input type="text" id="group-name" name="group-name" required />
-        <br>
-        <label for="date-from">Date From:</label>
-        <input type="date" id="date-from" name="date-from" required />
-        <label for="date-to">Date To:</label>
-        <input type="date" id="date-to" name="date-to" required />
+        <form>
+          <label for="group-name">Group Name:</label>
+          <input type="text" id="group-name" name="group-name" required />
+          <br>
+          <label for="date-from">Date From:</label>
+          <input type="date" id="date-from" name="date-from" required />
+          <label for="date-to">Date To:</label>
+          <input type="date" id="date-to" name="date-to" required />
 
-        <h3>List of Security Officers</h3>
-        <input type="text" id="search-input" name="search-input" placeholder="Search..." />
-        <button type="submit" id="search-button">Search</button>
+          <h3>List of Security Officers</h3>
+          <input type="text" id="search-input" name="search-input" placeholder="Search..." />
+          <button type="submit" id="search-button">Search</button>
 
-        <table>
-          <thead>
-            <tr>
-              <th><input type="checkbox" id="select-all" /></th>
-              <th>User ID</th>
-              <th>Name</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>#32112</td>
-              <td>Goola Wola</td>
-              <td>Assigned</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>#32113</td>
-              <td>David Guteela</td>
-              <td>Unassigned</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>#32114</td>
-              <td>Usher Leeva</td>
-              <td>Unassigned</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>#32115</td>
-              <td>Gento Lomibao</td>
-              <td>Unassigned</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>#32116</td>
-              <td>Anderson Lee</td>
-              <td>Unassigned</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>#32117</td>
-              <td>Happy Forrest</td>
-              <td>Unassigned</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="right-button">
-          <button type="submit">Cancel</button>
-          <button type="submit">Create Group</button>
-        </div>
+          <table>
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="select-all" /></th>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32112</td>
+                <td>Goola Wola</td>
+                <td>Assigned</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32113</td>
+                <td>David Guteela</td>
+                <td>Unassigned</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32114</td>
+                <td>Usher Leeva</td>
+                <td>Unassigned</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32115</td>
+                <td>Gento Lomibao</td>
+                <td>Unassigned</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32116</td>
+                <td>Anderson Lee</td>
+                <td>Unassigned</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>#32117</td>
+                <td>Happy Forrest</td>
+                <td>Unassigned</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="right-button">
+            <button type="submit">Cancel</button>
+            <button type="submit" id="createGroupBtn">Create Group</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

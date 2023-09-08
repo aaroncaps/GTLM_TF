@@ -27,6 +27,11 @@ th, td {
     padding: 8px; 
 }
 
+table td:first-child input[type="checkbox"] {
+    margin: 0 auto; 
+    display: block; 
+}
+
 button {
     font-weight: bold;
     color: #fff;
@@ -47,6 +52,11 @@ input {
 
 input[type="text"] {
     width: 300px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
 }
 
 /* buttons after a table are set to the right */

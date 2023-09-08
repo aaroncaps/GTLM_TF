@@ -1,3 +1,8 @@
+function init() {
+    
+}
+init();
+
 // Used for non desktop devices
 function handleHamburger(){
     let getHamburgerIcon = document.querySelector(".fa-bars");
