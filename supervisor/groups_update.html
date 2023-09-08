@@ -75,61 +75,95 @@
           <label for="group-name">Group Name:</label>
           <input type="text" id="group-name" name="group-name" required />
           <br>
-          
-
-          <h3>List of available Security Officers</h3>
-          <label for="date-from">Date From:</label>
-          <input type="date" id="date-from" name="date-from" required />
-          <label for="date-to">Date To:</label>
-          <input type="date" id="date-to" name="date-to" required />
-          <br>
-          <input type="text" id="search-input" name="search-input" placeholder="Search..." />
-          <button type="submit" id="search-button">Search</button>
-
+          <h3>Security Officers</h3>
           <table id="table1">
             <thead>
               <tr>
-                <th><input type="checkbox" id="selectAll1" onchange="selectAllCheckboxes('table1')"/></th>
+                <th><input type="checkbox" id="selectAll1" onchange="selectAllCheckboxes('table1')" /></th>
                 <th>User ID</th>
                 <th>Name</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox1" /></td>
+                <td>#32112</td>
+                <td>Mikey Salis</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox1" /></td>
+                <td>#32113</td>
+                <td>Huper Meya</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox1" /></td>
+                <td>#32114</td>
+                <td>Nonedi Ali</td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+          <div class="right-button">
+            <button type="submit" id="deleteSO" onclick="confirmDeleteSO('table1')">Delete SO</button>
+          </div>
+
+          <h3>List of available Security Officers</h3>
+          <span class="readOnly">
+            <label for="date-from">Date From:</label>
+            <input type="date" id="date-from" name="date-from" value="2023-09-25" readonly />
+            <label for="date-to">Date To:</label>
+            <input type="date" id="date-to" name="date-to" value="2023-09-30" readonly />
+          </span>
+          <br>
+          <input type="text" id="search-input" name="search-input" placeholder="Search..." />
+          <button type="submit" id="search-button">Search</button>
+
+          <table id="table2">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="selectAll2" onchange="selectAllCheckboxes('table2')" /></th>
+                <th>User ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="checkbox2" /></td>
                 <td>#32112</td>
                 <td>Goola Wola</td>
               </tr>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox2" /></td>
                 <td>#32113</td>
                 <td>David Guteela</td>
               </tr>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox2" /></td>
                 <td>#32114</td>
                 <td>Usher Leeva</td>
               </tr>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox2" /></td>
                 <td>#32115</td>
                 <td>Gento Lomibao</td>
               </tr>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox2" /></td>
                 <td>#32116</td>
                 <td>Anderson Lee</td>
               </tr>
               <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
+                <td><input type="checkbox" class="checkbox2" /></td>
                 <td>#32117</td>
                 <td>Happy Forrest</td>
               </tr>
             </tbody>
           </table>
+
           <div class="right-button">
             <button type="submit" onclick="cancelButton()">Cancel</button>
-            <button type="submit" id="createGroupBtn" onclick="confirmCreateGroup('table1')">Create Group</button>
+            <button type="submit" id="deleteGroupBtn" onclick="confirmDeleteGroup('table2')">Delete Group</button>
+            <button type="submit" id="updateGroupBtn" onclick="confirmUpdateGroup('table2')">Update Group</button>
           </div>
         </form>
       </div>

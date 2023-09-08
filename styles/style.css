@@ -77,3 +77,9 @@ input[type="checkbox"] {
     border: 1px solid #ddd;
     cursor: pointer;
 }
+
+/* For input fields that are read only, color it to grey to show that its not editable */
+.readOnly input {
+    background-color: #dadada; 
+
+}
