@@ -11,7 +11,7 @@
 
   <!-- js -->
   <script src="../js/core.js" defer></script>
-  <script src="../js/supervisor.js" defer></script>
+  <script src="../js/supervisor.js" ></script>
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
 
@@ -71,23 +71,25 @@
         </div>
         <h2>Tasks</h2>
         <!-- put your code here -->
-        <form>
+        <form id="myForm">
           <label for="group-name">Group Name:</label>
           <input type="text" id="group-name" name="group-name" required />
           <br>
+          
+
+          <h3>List of Security Officers</h3>
           <label for="date-from">Date From:</label>
           <input type="date" id="date-from" name="date-from" required />
           <label for="date-to">Date To:</label>
           <input type="date" id="date-to" name="date-to" required />
-
-          <h3>List of Security Officers</h3>
+          <br>
           <input type="text" id="search-input" name="search-input" placeholder="Search..." />
           <button type="submit" id="search-button">Search</button>
 
           <table>
             <thead>
               <tr>
-                <th><input type="checkbox" id="select-all" /></th>
+                <th><input type="checkbox" id="select-all" onchange="selectAll()"/></th>
                 <th>User ID</th>
                 <th>Name</th>
                 <th>Status</th>
@@ -134,7 +136,7 @@
           </table>
           <div class="right-button">
             <button type="submit">Cancel</button>
-            <button type="submit" id="createGroupBtn">Create Group</button>
+            <button type="submit" id="createGroupBtn" onclick="confirmCreateGroup()">Create Group</button>
           </div>
         </form>
       </div>
