@@ -188,3 +188,62 @@ Insert your new class/id below and write your name
 } 
 
 /* ============ DISPATCHER > TASKS (KANBAN CSS) Ends =========*/
+
+
+
+
+
+/* ========== DISPATCHER > CALENDAR START ============= */
+
+.calendar {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#month-year {
+    font-size: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.task-details {
+    margin-top: 20px;
+}
+
+.task-details h2 {
+    font-size: 20px;
+}
+
+td:hover {
+    background-color: #e6e6e6; /* Change to your desired hover color */
+}
+
+td.selected {
+    background-color: #184B81; /* Change to your desired selected background color */
+    color: #fff; /* Change to your desired selected text color */
+}
+
+td a{
+color: #184B81;
+}
+
+/* ============= DISPATCHER > CALENDAR END =============== */
