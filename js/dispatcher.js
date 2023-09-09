@@ -220,6 +220,8 @@ function init() {
         }
         report.value = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."; //Dummy data
         displayImageLink();
+    } else if(currentPageName == "tasks.html"){
+        toggleView();
     }
 }
 
@@ -361,5 +363,39 @@ function backButton() {
     
 
 }
+
+
+function toggleView() {
+    const kanbanWrapper = document.querySelector('.kanban_wrapper');
+    const col1 = document.querySelector('.col1');
+    const col2 = document.querySelector('.col2');
+    const col3 = document.querySelector('.col3');
+    const col4 = document.querySelector('.col4');
+    const col5 = document.querySelector('.col5');
+
+    // Check if the Kanban view is currently displayed
+    if (kanbanWrapper.style.display === '' || kanbanWrapper.style.display === 'none') {
+
+        document.getElementById("toggleViewButton").innerText = "List View";
+        // Switch back to Kanban view
+        kanbanWrapper.style.display = 'flex';
+        col1.style.display = 'block';
+        col2.style.display = 'block';
+        col3.style.display = 'block';
+        col4.style.display = 'block';
+        col5.style.display = 'block';
+    } else {
+       // Switch to List view
+       document.getElementById("toggleViewButton").innerText = "Kanban View";
+       kanbanWrapper.style.display = 'none';
+       col1.style.display = 'none';
+       col2.style.display = 'none';
+       col3.style.display = 'none';
+       col4.style.display = 'none';
+       col5.style.display = 'none';
+    }
+}
+
+document.getElementById('toggleViewButton').addEventListener('click', toggleView);
 
 init();

@@ -247,3 +247,13 @@ color: #184B81;
 }
 
 /* ============= DISPATCHER > CALENDAR END =============== */
+ 
+
+.buttoggle{
+    margin: 9px 9px 9px 9px;
+}
+
+.divtoggle {
+    display: flex;
+    justify-content: space-between;
+}
