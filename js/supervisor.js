@@ -16,6 +16,14 @@ function redirectToGroupsUpdatePage(groupId, groupName) {
     window.location.href = newUrl;
 }
 
+//function called by groups.html and redirects to reports_create.html
+function redirectToReportsCreatePage(taskId, taskName) {
+    const baseUrl = 'reports_create.html'; 
+    const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
+    const newUrl = baseUrl + queryParams;
+    window.location.href = newUrl;
+}
+
 
 //function that selects/deselects all checkbox in a table
 function selectAllCheckboxes(tableId) {
