@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SO - TASKS</title>
+  <title>Supervisor - Create Groups</title>
   <!-- css -->
   <link rel="stylesheet" href="../styles/navigation.css" />
   <link rel="stylesheet" href="../styles/style.css" />
@@ -70,7 +70,7 @@
         </div>
         <h2>Tasks</h2>
         <!-- put your code here -->
-        <form id="myForm">
+        <form id="myForm" action="groups.html" method="GET">
           <label for="group-name">Group Name:</label>
           <input type="text" id="group-name" name="group-name" required />
           <br />
@@ -94,41 +94,12 @@
                 <th>Name</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td>#32112</td>
-                <td>Goola Wola</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td>#32113</td>
-                <td>David Guteela</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td>#32114</td>
-                <td>Usher Leeva</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td>#32115</td>
-                <td>Gento Lomibao</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td>#32116</td>
-                <td>Anderson Lee</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="checkbox" /></td>
-                <td>#32117</td>
-                <td>Happy Forrest</td>
-              </tr>
+            <tbody id="soTableBody">
+             <!-- table body will be created by JavaScript supervisor.js -->
             </tbody>
           </table>
           <div class="right-button">
-            <button type="submit" onclick="cancelButton()">Cancel</button>
+            <button type="button" onclick="cancelButton()">Cancel</button>
             <button type="submit" id="createGroupBtn" onclick="confirmCreateGroup('table1')">
               Create Group
             </button>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Supervisor - Reports</title>
+    <title>Supervisor - Create Reports for Group</title>
     <!-- css -->
     <link rel="stylesheet" href="../styles/navigation.css" />
     <link rel="stylesheet" href="../styles/style.css" />
@@ -71,24 +71,21 @@
                 <h2>Reports</h2>
                 <!-- put your code here -->
                 <form>
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Task ID</th>
-                                    <th>Task</th>
-                                    <th>Last Submitted</th>
-                                </tr>
-                            </thead>
-                            <tbody id="reportsTableBody">
-                               <!-- table body will be created by JavaScript supervisor.js -->
-                               <tr>
-                                    <td>#12399</td>
-                                    <td>Done by one security officer</td>
-                                    <td>01-Sep-2023</td>
-                               </tr>
-                            </tbody>
-                        </table>
+                    <label for="id-task">User ID:</label>
+                    <output id="id-user" name="user"></output>
+                    <br>
+                    <label for="id-group">Name:</label>
+                    <output id="id-name" name="name"></output>
+                    <br><br>
+                    <span class="readOnly">
+                        <label for="id-report">Report:</label>
+                        <textarea id="id-report" name="report" rows="8" cols="50" readonly></textarea>
+                    </span>
+                    <label for="id-report">Attached Files:</label>
+                    <br>
+                    <div id="attachedImage"></div>
+                    <div class="right-button">
+                        <button type="button" onclick="backButton()">Back</button>
                     </div>
                 </form>
             </div>

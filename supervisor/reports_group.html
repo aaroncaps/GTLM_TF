@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Supervisor - Reports</title>
+    <title>Supervisor - Create Reports for Group</title>
     <!-- css -->
     <link rel="stylesheet" href="../styles/navigation.css" />
     <link rel="stylesheet" href="../styles/style.css" />
@@ -70,25 +70,51 @@
                 </div>
                 <h2>Reports</h2>
                 <!-- put your code here -->
-                <form>
-                    <div>
+                <form id="myForm" action="reports.html" method="GET">
+                    <label for="id-task">Task:</label>
+                    <output id="id-task" name="task"></output>
+                    <br>
+                    <div id="id-task-group">
+                        <label for="id-group">Group:</label>
+                        <output id="id-group" name="group"></output>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Task ID</th>
-                                    <th>Task</th>
-                                    <th>Last Submitted</th>
+                                    <th>User ID</th>
+                                    <th>Date Submitted</th>
+                                    <th>Name</th>
                                 </tr>
                             </thead>
-                            <tbody id="reportsTableBody">
-                               <!-- table body will be created by JavaScript supervisor.js -->
-                               <tr>
-                                    <td>#12399</td>
-                                    <td>Done by one security officer</td>
-                                    <td>01-Sep-2023</td>
-                               </tr>
+                            <tbody id="reportsGroupTableBody">
+                                <!-- table body will be created by JavaScript supervisor.js -->
                             </tbody>
                         </table>
+                    </div>
+                    <div id="id-task-so">
+                        <label for="id-name">Name:</label>
+                        <output id="id-name" name="name"></output>
+                        <br><br>
+                        <span class="readOnly">
+                            <label for="id-reports-so">Report:</label>
+                            <textarea id="id-report-so" name="report" rows="8" cols="50" readonly></textarea>
+                        </span>
+                        <label for="id-report">Attached Files:</label>
+                        <br>
+                        <div id="attachedImage"></div>
+                    </div>
+                    
+                    <br>
+                    <div class="horizontal-line"></div>
+                    <h3>Supervisor Report</h3>
+                    <span class="labelAndTextarea">
+                        <label for="id-report">Report:</label>
+                        <textarea id="id-report" name="report" rows="8" cols="50" required></textarea>
+                    </span>
+                    <div class="right-button">
+                        <button type="button" onclick="cancelButton()">Cancel</button>
+                        <button type="submit" id="createGroupBtn" onclick="confirmSubmitReport()">
+                            Submit Report
+                        </button>
                     </div>
                 </form>
             </div>
