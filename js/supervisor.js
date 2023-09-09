@@ -1,6 +1,6 @@
 //function called by groups.html and redirects to groups_update.html
 function redirectToGroupsUpdatePage(groupId, groupName) {
-    const baseUrl = 'groups_update.html'; 
+    const baseUrl = 'groups_update.html';
     const queryParams = `?groupId=${encodeURIComponent(groupId)}&groupName=${encodeURIComponent(groupName)}`;
     const newUrl = baseUrl + queryParams;
     window.location.href = newUrl;
@@ -8,7 +8,7 @@ function redirectToGroupsUpdatePage(groupId, groupName) {
 
 //function called by groups.html and redirects to reports_group.html
 function redirectToReportsGroupPage(taskId, taskName) {
-    const baseUrl = 'reports_group.html'; 
+    const baseUrl = 'reports_group.html';
     const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
     const newUrl = baseUrl + queryParams;
     window.location.href = newUrl;
@@ -16,7 +16,7 @@ function redirectToReportsGroupPage(taskId, taskName) {
 
 //function called by reports_group.html and redirects to reports_group_so.html
 function redirectToReportsGroupSoPage(userId, userName) {
-    const baseUrl = 'reports_group_so.html'; 
+    const baseUrl = 'reports_group_so.html';
     const queryParams = `?userId=${encodeURIComponent(userId)}&userName=${encodeURIComponent(userName)}`;
     const newUrl = baseUrl + queryParams;
     window.location.href = newUrl;
@@ -102,6 +102,20 @@ function confirmDeleteSO(tableId) {
     }
 }
 
+function confirmSubmitReport() {
+    const idReport = document.getElementById('id-report');
+    if (idReport.value !== '') {
+        const confirmation = window.confirm("Confirm submit report?");
+        if (confirmation) {
+            document.getElementById("myForm").submit();
+        } else {
+            document.getElementById("myForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+            });
+        }
+    }
+}
+
 //function to select all those rows that were checked
 function getCheckedRowsData(tableId) {
     const checkedRowsData = [];
@@ -121,7 +135,26 @@ function getCheckedRowsData(tableId) {
 
 //cancel button that redirect to groups.html
 function cancelButton() {
-    window.location.href = 'groups.html';
+    const currentPagePath = window.location.pathname;
+    const currentPageName = currentPagePath.split("/").pop();
+    console.log("Current Page Name:", currentPageName);
+
+    if (currentPageName == 'groups_create.html' || currentPageName == 'groups_update.html') {
+        window.location.href = 'groups.html';
+    } else if (currentPageName == 'reports_group.html' || currentPageName == 'reports_group_so.html') {
+        window.location.href = 'reports.html';
+    }
+}
+
+function backButton() {
+    const currentPagePath = window.location.pathname;
+    const currentPageName = currentPagePath.split("/").pop();
+    console.log("Current Page Name:", currentPageName);
+    if (currentPageName == 'reports_group_so.html') {
+        window.location.href = 'reports_group.html';
+    }
+    
+
 }
 
 //funtion that gets all the parameters passed in a url
@@ -133,58 +166,58 @@ function getUrlParam(name) {
 //Dummy data for the list of groups
 const groups = [
     {
-        groupId:     "G1234",
+        groupId: "G1234",
         dateCreated: "03-Sep-2023",
-        name:        "Team AAA",
-        taskId:      "12390",
+        name: "Team AAA",
+        taskId: "12390",
     },
     {
-        groupId:     "G1235",
+        groupId: "G1235",
         dateCreated: "02-Sep-2023",
-        name:        "Team Hulk",
-        taskId:      "-",
+        name: "Team Hulk",
+        taskId: "-",
     },
     {
-        groupId:     "G1236",
+        groupId: "G1236",
         dateCreated: "02-Sep-2023",
-        name:        "Team Azure",
-        taskId:      "-",
+        name: "Team Azure",
+        taskId: "-",
     },
     {
-        groupId:     "G1237",
+        groupId: "G1237",
         dateCreated: "02-Sep-2023",
-        name:        "Team BBB",
-        taskId:      "-",
+        name: "Team BBB",
+        taskId: "-",
     },
     {
-        groupId:     "G1238",
+        groupId: "G1238",
         dateCreated: "02-Sep-2023",
-        name:        "Team Offense",
-        taskId:      "12391",
+        name: "Team Offense",
+        taskId: "12391",
     },
     {
-        groupId:     "G1239",
+        groupId: "G1239",
         dateCreated: "02-Sep-2023",
-        name:        "Team Defense",
-        taskId:      "12392",
+        name: "Team Defense",
+        taskId: "12392",
     },
     {
-        groupId:     "G1210",
+        groupId: "G1210",
         dateCreated: "02-Sep-2023",
-        name:        "Team Support",
-        taskId:      "12393",
+        name: "Team Support",
+        taskId: "12393",
     },
     {
-        groupId:     "G1211",
+        groupId: "G1211",
         dateCreated: "02-Sep-2023",
-        name:        "Team Komsat",
-        taskId:      "12394",
+        name: "Team Komsat",
+        taskId: "12394",
     },
     {
-        groupId:     "G2312",
+        groupId: "G2312",
         dateCreated: "02-Sep-2023",
-        name:        "Team Strong",
-        taskId:      "12395",
+        name: "Team Strong",
+        taskId: "12395",
     },
 ];
 
@@ -192,27 +225,27 @@ const groups = [
 const securityOfficers = [
     {
         userId: "32112",
-        name:   "Goola Wola",
+        name: "Goola Wola",
     },
     {
         userId: "32113",
-        name:   "David Guteela",
+        name: "David Guteela",
     },
     {
         userId: "32114",
-        name:   "Usher Leeva",
+        name: "Usher Leeva",
     },
     {
         userId: "32115",
-        name:   "Gento Lomibao",
+        name: "Gento Lomibao",
     },
     {
         userId: "32116",
-        name:   "Anderson Lee",
+        name: "Anderson Lee",
     },
     {
         userId: "32117",
-        name:   "Happy Forrest",
+        name: "Happy Forrest",
     },
 ];
 
@@ -220,101 +253,101 @@ const securityOfficers = [
 const securityOfficersGrouped = [
     {
         userId: "32112",
-        name:   "Mikey Salis",
+        name: "Mikey Salis",
     },
     {
         userId: "32113",
-        name:   "Huper Meya",
+        name: "Huper Meya",
     },
     {
         userId: "32114",
-        name:   "Nonedi Ali",
+        name: "Nonedi Ali",
     },
 ];
 
 const reports = [
     {
-        taskId:        "12315",
-        taskName:      "Mikey Salis",
+        taskId: "12315",
+        taskName: "Mikey Salis",
         lastSubmitted: "03-Sep-2023"
     },
     {
-        taskId:        "12314",
-        taskName:      "On Site check and surveillance team needed",
+        taskId: "12314",
+        taskName: "On Site check and surveillance team needed",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12313",
-        taskName:      "Threat assessment needed at area BHD",
+        taskId: "12313",
+        taskName: "Threat assessment needed at area BHD",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12312",
-        taskName:      "Asset surveillance required for Mr. Chong",
+        taskId: "12312",
+        taskName: "Asset surveillance required for Mr. Chong",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12311",
-        taskName:      "Surveillance at DKLL",
+        taskId: "12311",
+        taskName: "Surveillance at DKLL",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12310",
-        taskName:      "Surveillance at DKJJ",
+        taskId: "12310",
+        taskName: "Surveillance at DKJJ",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12309",
-        taskName:      "Surveillance at DKFF",
+        taskId: "12309",
+        taskName: "Surveillance at DKFF",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12308",
-        taskName:      "Surveillance at DKDD",
+        taskId: "12308",
+        taskName: "Surveillance at DKDD",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12307",
-        taskName:      "Surveillance at DKD12",
+        taskId: "12307",
+        taskName: "Surveillance at DKD12",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12306",
-        taskName:      "Surveillance at BBBB",
+        taskId: "12306",
+        taskName: "Surveillance at BBBB",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12305",
-        taskName:      "Surveillance at GGGG",
+        taskId: "12305",
+        taskName: "Surveillance at GGGG",
         lastSubmitted: "02-Sep-2023"
     },
     {
-        taskId:        "12304",
-        taskName:      "Surveillance at HHH",
+        taskId: "12304",
+        taskName: "Surveillance at HHH",
         lastSubmitted: "01-Sep-2023"
     },
 ];
 
 const reportsGroup = [
     {
-        userId:        "71234",
+        userId: "71234",
         dateSubmitted: "03-Sep-2023",
-        name:          "Yoyo Moley"
+        name: "Yoyo Moley"
     },
     {
-        userId:        "21235",
+        userId: "21235",
         dateSubmitted: "02-Sep-2023",
-        name:          "Henry Cavil"
+        name: "Henry Cavil"
     },
     {
-        userId:        "31236",
+        userId: "31236",
         dateSubmitted: "02-Sep-2023",
-        name:          "Uma Therman"
+        name: "Uma Therman"
     },
     {
-        userId:        "51237",
+        userId: "51237",
         dateSubmitted: "-",
-        name:          "Blade Heley"
+        name: "Blade Heley"
     },
 ];
 
@@ -407,7 +440,7 @@ function createTableRowSo(so) {
     checkbox.type = "checkbox";
     checkbox.className = "checkbox";
     checkboxCell.appendChild(checkbox);
-    
+
     userIdCell.textContent = so.userId;
     nameCell.textContent = so.name;
 
@@ -420,42 +453,42 @@ function createTableRowSo(so) {
 
 // Function to populate the table with data
 function populateTable(name) {
-    if(name == 'groups') {
+    if (name == 'groups') {
         const groupTableBody = document.getElementById("groupTableBody");
         groupTableBody.innerHTML = "";
         groups.forEach(group => {
             const tableRow = createTableRowGroup(group);
             groupTableBody.appendChild(tableRow);
-        });        
-    } else if(name == 'so') {
+        });
+    } else if (name == 'so') {
         const soTableBody = document.getElementById("soTableBody");
         soTableBody.innerHTML = "";
         securityOfficers.forEach(so => {
             const tableRow = createTableRowSo(so);
             soTableBody.appendChild(tableRow);
-        });        
-    } else if(name == 'soGrouped') {
+        });
+    } else if (name == 'soGrouped') {
         const soGroupedTableBody = document.getElementById("soGroupedTableBody");
         soGroupedTableBody.innerHTML = "";
         securityOfficersGrouped.forEach(soGrouped => {
             const tableRow = createTableRowSo(soGrouped);
             soGroupedTableBody.appendChild(tableRow);
-        });        
-    } else if(name == 'reports') {
+        });
+    } else if (name == 'reports') {
         const reportsTableBody = document.getElementById("reportsTableBody");
         reportsTableBody.innerHTML = "";
         reports.forEach(report => {
             const tableRow = createTableReports(report);
             reportsTableBody.appendChild(tableRow);
-        });        
-    } else if(name == 'reportsGroup') {
+        });
+    } else if (name == 'reportsGroup') {
         const reportsGroupTableBody = document.getElementById("reportsGroupTableBody");
         reportsGroupTableBody.innerHTML = "";
         reportsGroup.forEach(reportGroup => {
             const tableRow = createTableReportsGroup(reportGroup);
             reportsGroupTableBody.appendChild(tableRow);
-        });        
-    } 
+        });
+    }
 }
 
 function init() {
@@ -463,32 +496,42 @@ function init() {
     const currentPageName = currentPagePath.split("/").pop();
     console.log("Current Page Name:", currentPageName);
 
-    if(currentPageName == 'groups.html') {
+    if (currentPageName == 'groups.html') {
         //popoulate the list of security officers
         populateTable('groups');
-    } else if(currentPageName == 'groups_create.html') {
+    } else if (currentPageName == 'groups_create.html') {
         //popoulate the list of security officers
         populateTable('so');
-    } else if(currentPageName == 'groups_update.html') {
+    } else if (currentPageName == 'groups_update.html') {
         const groupName = document.getElementById("group-name");
-        if(groupName!=null) {
+        if (groupName != null) {
             //gets the parameter passed from groups.html
             groupName.value = getUrlParam("groupName");
         }
         populateTable('soGrouped');
         populateTable('so');
-    } else if(currentPageName == 'reports.html') {
+    } else if (currentPageName == 'reports.html') {
         //popoulate the list of task for reports
         populateTable('reports');
-    } else if(currentPageName == 'reports_group.html') {
+    } else if (currentPageName == 'reports_group.html') {
         const taskId = document.getElementById("id-task");
         const taskName = document.getElementById("id-group");
-        if(taskId!=null) {
+        if (taskId != null) {
             //gets the parameter passed from reports.html
-            taskId.value = "#"+getUrlParam("taskId")+" "+getUrlParam("taskName");
+            taskId.value = "#" + getUrlParam("taskId") + " " + getUrlParam("taskName");
         }
         taskName.value = "#G1234 Team AAA"; //Dummy data
         populateTable('reportsGroup')
+    } else if (currentPageName == 'reports_group_so.html') {
+        const userId = document.getElementById("id-user");
+        const userName = document.getElementById("id-name");
+        const report = document.getElementById("id-report");
+        if (userId != null && userName != null) {
+            //gets the parameter passed from reports.html
+            userId.value = "#" + getUrlParam("userId");
+            userName.value = getUrlParam("userName");
+        }
+        report.value = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."; //Dummy data
     }
 }
 init();

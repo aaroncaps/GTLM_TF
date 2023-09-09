@@ -100,14 +100,25 @@ Please reuse the classes below by placing it in a div or span tags.
 
 }
 
+.readOnly textarea {
+    background-color: #dadada; 
+    width: 100%; 
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
 /* creates a horizontal line for division purposes */
 .horizontal-line {
     border-top: 1px solid #000; 
     margin: 10px 0; 
 }
 
+/* makes the text area's width same as the width of the page */
 .labelAndTextarea textarea {
     width: 100%; 
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 /* ==================================================================

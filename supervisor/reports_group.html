@@ -70,7 +70,7 @@
                 </div>
                 <h2>Reports</h2>
                 <!-- put your code here -->
-                <form>
+                <form id="myForm">
                     <label for="id-task">Task:</label>
                     <output id="id-task" name="task"></output>
                     <br>
@@ -93,8 +93,14 @@
                     <h3>Supervisor Report</h3>
                     <span class="labelAndTextarea">
                         <label for="id-report">Report:</label>
-                        <textarea id="id-report" name="report" rows="4" cols="50"></textarea>
+                        <textarea id="id-report" name="report" rows="8" cols="50" required></textarea>
                     </span>
+                    <div class="right-button">
+                        <button type="button" onclick="cancelButton()">Cancel</button>
+                        <button type="submit" id="createGroupBtn" onclick="confirmSubmitReport()">
+                            Submit Report
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

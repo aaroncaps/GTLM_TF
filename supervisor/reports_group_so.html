@@ -72,54 +72,17 @@
                 <!-- put your code here -->
                 <form>
                     <label for="id-task">Task:</label>
-                    <output id="id-task" name="task"></output>
+                    <output id="id-user" name="user"></output>
                     <br>
                     <label for="id-group">Group:</label>
-                    <output id="id-group" name="group"></output>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User ID</th>
-                                    <th>Date Submitted</th>
-                                    <th>Name</th>
-                                </tr>
-                            </thead>
-                            <tbody id="reportsGroupTableBody">
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12315', 'Secure perimeter fencing around BFH area')">#71234</a>
-                                    </td>
-                                    <td>03-Sep-2023</td>
-                                    <td>Yoyo Moley</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12314', 'On Site check and surveillance team needed')">#12314</a>
-                                    </td>
-                                    <td>On Site check and surveillance team needed</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12313', 'Threat assessment needed at area BHD')">#12313</a>
-                                    </td>
-                                    <td>Threat assessment needed at area BHD</td>
-                                    <td>03-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12312', 'Asset surveillance required for Mr. Chong')">#12312</a>
-                                    </td>
-                                    <td>Asset surveillance required for Mr. Chong</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <output id="id-name" name="name"></output>
+                    <br><br>
+                    <span class="readOnly">
+                        <label for="id-report">Report:</label>
+                        <textarea id="id-report" name="report" rows="8" cols="50" readonly></textarea>
+                    </span>
+                    <div class="right-button">
+                        <button type="button" onclick="backButton()">Back</button>
                     </div>
                 </form>
             </div>
