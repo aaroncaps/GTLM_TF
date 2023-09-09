@@ -6,10 +6,18 @@ function redirectToGroupsUpdatePage(groupId, groupName) {
     window.location.href = newUrl;
 }
 
-//function called by groups.html and redirects to reports_create.html
+//function called by groups.html and redirects to reports_group.html
 function redirectToReportsGroupPage(taskId, taskName) {
     const baseUrl = 'reports_group.html'; 
     const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
+    const newUrl = baseUrl + queryParams;
+    window.location.href = newUrl;
+}
+
+//function called by reports_group.html and redirects to reports_group_so.html
+function redirectToReportsGroupSoPage(userId, userName) {
+    const baseUrl = 'reports_group_so.html'; 
+    const queryParams = `?userId=${encodeURIComponent(userId)}&userName=${encodeURIComponent(userName)}`;
     const newUrl = baseUrl + queryParams;
     window.location.href = newUrl;
 }
@@ -285,7 +293,29 @@ const reports = [
         taskName:      "Surveillance at HHH",
         lastSubmitted: "01-Sep-2023"
     },
+];
 
+const reportsGroup = [
+    {
+        userId:        "71234",
+        dateSubmitted: "03-Sep-2023",
+        name:          "Yoyo Moley"
+    },
+    {
+        userId:        "21235",
+        dateSubmitted: "02-Sep-2023",
+        name:          "Henry Cavil"
+    },
+    {
+        userId:        "31236",
+        dateSubmitted: "02-Sep-2023",
+        name:          "Uma Therman"
+    },
+    {
+        userId:        "51237",
+        dateSubmitted: "-",
+        name:          "Blade Heley"
+    },
 ];
 
 // Function to create a table row for groups
@@ -316,7 +346,7 @@ function createTableRowGroup(group) {
     return row;
 }
 
-// Function to create a table row for groups
+// Function to create a table row for reports
 function createTableReports(report) {
     const row = document.createElement("tr");
     const taskIdCell = document.createElement("td");
@@ -337,6 +367,31 @@ function createTableReports(report) {
     row.appendChild(taskIdCell);
     row.appendChild(taskNameCell);
     row.appendChild(lastSubmittedCell);
+
+    return row;
+}
+
+// Function to create a table row for groups in the report
+function createTableReportsGroup(reportGroup) {
+    const row = document.createElement("tr");
+    const userIdCell = document.createElement("td");
+    const dateSubmittedCell = document.createElement("td");
+    const nameCell = document.createElement("td");
+    const reportGroupLink = document.createElement("a");
+
+    reportGroupLink.href = "javascript:void(0);";
+    reportGroupLink.textContent = `#${reportGroup.userId}`;
+    reportGroupLink.onclick = function () {
+        redirectToReportsGroupSoPage(reportGroup.userId, reportGroup.name);
+    };
+
+    userIdCell.appendChild(reportGroupLink);
+    dateSubmittedCell.textContent = reportGroup.dateSubmitted;
+    nameCell.textContent = reportGroup.name;
+
+    row.appendChild(userIdCell);
+    row.appendChild(dateSubmittedCell);
+    row.appendChild(nameCell);
 
     return row;
 }
@@ -386,12 +441,19 @@ function populateTable(name) {
             const tableRow = createTableRowSo(soGrouped);
             soGroupedTableBody.appendChild(tableRow);
         });        
-    }  else if(name == 'reports') {
+    } else if(name == 'reports') {
         const reportsTableBody = document.getElementById("reportsTableBody");
         reportsTableBody.innerHTML = "";
         reports.forEach(report => {
             const tableRow = createTableReports(report);
             reportsTableBody.appendChild(tableRow);
+        });        
+    } else if(name == 'reportsGroup') {
+        const reportsGroupTableBody = document.getElementById("reportsGroupTableBody");
+        reportsGroupTableBody.innerHTML = "";
+        reportsGroup.forEach(reportGroup => {
+            const tableRow = createTableReportsGroup(reportGroup);
+            reportsGroupTableBody.appendChild(tableRow);
         });        
     } 
 }
@@ -426,6 +488,7 @@ function init() {
             taskId.value = "#"+getUrlParam("taskId")+" "+getUrlParam("taskName");
         }
         taskName.value = "#G1234 Team AAA"; //Dummy data
+        populateTable('reportsGroup')
     }
 }
 init();
