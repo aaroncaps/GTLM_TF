@@ -106,6 +106,10 @@ Please reuse the classes below by placing it in a div or span tags.
     margin: 10px 0; 
 }
 
+.labelAndTextarea textarea {
+    width: 100%; 
+}
+
 /* ==================================================================
 Insert your new class/id below and write your name 
 ================================================================== */
