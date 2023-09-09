@@ -257,3 +257,47 @@ color: #184B81;
     display: flex;
     justify-content: space-between;
 }
+
+.filterstatus {
+    padding: 9px 9px 9px 9px;
+}
+
+select#filterdropdown {
+    height: 100%;
+}
+
+form#taskForm {
+    margin-top: 20px;
+}
+
+.inc-task {
+    margin-bottom: 10px;
+}
+
+.inc-task label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+}
+
+.inc-task input[type="text"],
+textarea {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.inc-inc-task {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.inc-inc-task button {
+    margin-left: 89px;
+    /* padding-bottom: 0px; */
+    width: 50%;
+}

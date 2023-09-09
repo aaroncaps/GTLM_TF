@@ -180,6 +180,99 @@ const groups = [
 
 
 
+
+
+
+
+const Tasks = [
+    {
+        tasknumber: "12315",
+        task: "Mikey Salis",
+        datecreated: "03-Sep-2023",
+        status: "In Review",
+        assignedto: "-",
+    },
+    {
+        tasknumber: "12314",
+        task: "On Site check and surveillance team needed",
+        datecreated: "02-Sep-2023",
+        status: "Assigned & In Progress",
+        assignedto: "-",
+    },
+    {
+        tasknumber: "12313",
+        task: "Threat assessment needed at area BHD",
+        datecreated: "02-Sep-2023",
+        status: "In Review",
+        assignedto: "-",
+    },
+    {
+        tasknumber: "12312",
+        task: "Asset surveillance required for Mr. Chong",
+        datecreated: "02-Sep-2023",
+        status: "Assigned & In Progress",
+        assignedto: "-",
+    },
+    {
+        tasknumber: "12311",
+        task: "Surveillance at DKLL",
+        datecreated: "02-Sep-2023",
+        status: "In Review",
+        assignedto: "May Sander",
+    },
+    {
+        tasknumber: "12310",
+        task: "Surveillance at DKJJ",
+        datecreated: "02-Sep-2023",
+        status: "Declined Tasks",
+        assignedto: "Jake Lim",
+    },
+    {
+        tasknumber: "12309",
+        task: "Surveillance at DKFF",
+        datecreated: "02-Sep-2023",
+        status: "Completed",
+        assignedto: "Luke Meyaa",
+    },
+    {
+        tasknumber: "12308",
+        task: "Surveillance at DKDD",
+        datecreated: "02-Sep-2023",
+        status: "Declined Tasks",
+        assignedto: "Tim Horton",
+    },
+    {
+        tasknumber: "12307",
+        task: "Surveillance at DKD12",
+        datecreated: "02-Sep-2023",
+        status: "Completed",
+        assignedto: "Luke Moses",
+    },
+    {
+        tasknumber: "12306",
+        task: "Surveillance at BBBB",
+        datecreated: "02-Sep-2023",
+        status: "Incoming Tasks",
+        assignedto: "Avril Izak",
+    },
+    {
+        tasknumber: "12305",
+        task: "Surveillance at GGGG",
+        datecreated: "02-Sep-2023",
+        status: "Incoming Tasks",
+        assignedto: "Gigi Hadid",
+    },
+    {
+        tasknumber: "12304",
+        task: "Surveillance at HHH",
+        datecreated: "01-Sep-2023",
+        status: "In Review",
+        assignedto: "Ashley Li",
+    },
+];
+
+
+
 function init() {
     const currentPagePath = window.location.pathname;
     const currentPageName = currentPagePath.split("/").pop();
@@ -222,6 +315,40 @@ function init() {
         displayImageLink();
     } else if(currentPageName == "tasks.html"){
         toggleView();
+        filterdropdown.addEventListener("change", function() {
+            var dropdown = document.getElementById("filterdropdown");
+            var selectedValue = dropdown.value;
+            filtertable(selectedValue)
+        });
+        document.getElementById('toggleViewButton').addEventListener('click', toggleView);
+        gettabledata('tasks');
+    }else if(currentPageName == "Assignedtask.html" || currentPageName == "Declinedtask.html" || currentPageName == "Incomingtask.html"){
+        const tasknumber = document.getElementById('task-number');
+    const datecreated = document.getElementById('date-created');
+    const task = document.getElementById('task');
+    const status = document.getElementById('status');
+    const assignedto = document.getElementById('assigned-to');
+    const detail = document.getElementById('detail');
+    if(getUrlParam("taskId")){
+    Tasks.forEach(Task => {
+        if(Task.tasknumber == getUrlParam("taskId")){
+            tasknumber.value = Task.tasknumber;
+            datecreated.value = Task.datecreated;
+            task.value = Task.task;
+            status.value = Task.status;
+            assignedto.value = Task.assignedto;
+            detail.value = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        if(currentPageName == "Declinedtask.html"){
+            document.getElementById('reason').value = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        }
+        }
+       
+    });
+}
+else{
+    cancelButton();
+}
+
     }
 }
 
@@ -240,7 +367,50 @@ function gettabledata(name) {
             const tableRow = createTableReportsGroup(reportGroup);
             reportsGroupTableBody.appendChild(tableRow);
         });
+    } else if (name == 'tasks') {
+        const reportsGroupTableBody = document.getElementById("TaskTableBody");
+        reportsGroupTableBody.innerHTML = "";
+        Tasks.forEach(Task => {
+            const tableRow = createTableTask(Task);
+            reportsGroupTableBody.appendChild(tableRow);
+        });
     }
+}
+
+function createTableTask(Task) {
+    const row = document.createElement("tr");
+    const taskidcell = document.createElement("td");
+    const taskcell = document.createElement("td");
+    const datecreatedcell = document.createElement("td");
+    const statuscell = document.createElement("td");
+    const assignedtocell = document.createElement("td");
+    const taskLink = document.createElement("a");
+
+    taskLink.href = "javascript:void(0);";
+    taskLink.textContent = `#${Task.tasknumber}`;
+    taskLink.onclick = function () {
+        if(Task.status == "Incoming Tasks"){
+            redirectToIncomingtaskPage(Task.tasknumber, Task.task);
+        }else if(Task.status == "Declined Tasks"){
+            redirectToDeclindestaskPage(Task.tasknumber, Task.task);
+        }else if(Task.status == "Assigned & In Progress"){
+            redirectToAssignedTaskPage(Task.tasknumber, Task.task);
+        }
+    };
+
+    taskidcell.appendChild(taskLink);
+    taskcell.textContent = Task.task;
+    datecreatedcell.textContent = Task.datecreated;
+    statuscell.textContent = Task.status;
+    assignedtocell.textContent = Task.assignedto;
+
+    row.appendChild(taskidcell);
+    row.appendChild(taskcell);
+    row.appendChild(datecreatedcell);
+    row.appendChild(statuscell);
+    row.appendChild(assignedtocell);
+
+    return row;
 }
 
 function createTableReports(report) {
@@ -291,8 +461,31 @@ function createTableReportsGroup(reportGroup) {
     return row;
 }
 
+
+
 function redirectToReportsGroupPage(taskId, taskName) {
     const baseUrl = 'reports_group.html';
+    const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
+    const newUrl = baseUrl + queryParams;
+    window.location.href = newUrl;
+}
+
+function redirectToDeclindestaskPage(taskId, taskName) {
+    const baseUrl = 'Declinedtask.html';
+    const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
+    const newUrl = baseUrl + queryParams;
+    window.location.href = newUrl;
+}
+
+function redirectToIncomingtaskPage(taskId, taskName) {
+    const baseUrl = 'Incomingtask.html';
+    const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
+    const newUrl = baseUrl + queryParams;
+    window.location.href = newUrl;
+}
+
+function redirectToAssignedTaskPage(taskId, taskName) {
+    const baseUrl = 'Assignedtask.html';
     const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
     const newUrl = baseUrl + queryParams;
     window.location.href = newUrl;
@@ -346,39 +539,31 @@ function cancelButton() {
     const currentPageName = currentPagePath.split("/").pop();
     console.log("Current Page Name:", currentPageName);
 
-    if (currentPageName == 'groups_create.html' || currentPageName == 'groups_update.html') {
-        window.location.href = 'groups.html';
+    if (currentPageName == 'Assignedtask.html' || currentPageName == "Declinedtask.html" || currentPageName == "Incomingtask.html") {
+        window.location.href = 'tasks.html';
     } else if (currentPageName == 'reports_group.html' || currentPageName == 'reports_so.html') {
         window.location.href = 'reports.html';
     }
 }
 
-function backButton() {
-    const currentPagePath = window.location.pathname;
-    const currentPageName = currentPagePath.split("/").pop();
-    console.log("Current Page Name:", currentPageName);
-    if (currentPageName == 'reports_so.html') {
-        window.location.href = 'reports_group.html';
-    }
-    
-
-}
-
 
 function toggleView() {
     const kanbanWrapper = document.querySelector('.kanban_wrapper');
+    const listview = document.querySelector('.ListView');
     const col1 = document.querySelector('.col1');
     const col2 = document.querySelector('.col2');
     const col3 = document.querySelector('.col3');
     const col4 = document.querySelector('.col4');
     const col5 = document.querySelector('.col5');
-
+    const dropdown = document.querySelector('.filterstatus');
     // Check if the Kanban view is currently displayed
     if (kanbanWrapper.style.display === '' || kanbanWrapper.style.display === 'none') {
 
         document.getElementById("toggleViewButton").innerText = "List View";
         // Switch back to Kanban view
         kanbanWrapper.style.display = 'flex';
+        listview.style.display = 'none';
+        dropdown.style.display = 'none';
         col1.style.display = 'block';
         col2.style.display = 'block';
         col3.style.display = 'block';
@@ -388,6 +573,8 @@ function toggleView() {
        // Switch to List view
        document.getElementById("toggleViewButton").innerText = "Kanban View";
        kanbanWrapper.style.display = 'none';
+       listview.style.display = 'block';
+       dropdown.style.display = 'block';
        col1.style.display = 'none';
        col2.style.display = 'none';
        col3.style.display = 'none';
@@ -396,6 +583,92 @@ function toggleView() {
     }
 }
 
-document.getElementById('toggleViewButton').addEventListener('click', toggleView);
+function filtertable(text){
+    if(text != "All"){
+    var input, filter, table, tr, td, i, txtValue;
+  input = text;
+  filter = input.toUpperCase();
+  table = document.getElementById("tasktable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}else{
+    var input, filter, table, tr, td, i, txtValue;
+    input = "";
+    filter = input.toUpperCase();
+    table = document.getElementById("tasktable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+}
+}
+
+
+
+function cancelTask() {
+    // Clear all textboxes and the textarea
+    document.getElementById("task1").value = "";
+    document.getElementById("task2").value = "";
+    document.getElementById("task3").value = "";
+    document.getElementById("task4").value = "";
+    document.getElementById("task5").value = "";
+    document.getElementById("notes").value = "";
+}
+
+function Submit(pagename) {
+    const tasknumber = document.getElementById('task-number');
+    const datecreated = document.getElementById('date-created');
+    const task = document.getElementById('task');
+    const status = document.getElementById('status');
+    const assignedto = document.getElementById('assigned-to');
+    const detail = document.getElementById('detail');
+
+    if(pagename == 'AssignedTask'){
+        const confirmation = window.confirm("Are you sure you want to complete Task?");
+        if (confirmation) {
+            document.getElementById("myForm").submit();
+        } else {
+            document.getElementById("myForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+            });
+        }
+    }else{
+    if (tasknumber.value !== '' && datecreated.value !== '' && task.value !== '' && status.value !== '' && assignedto.value !== '' && detail.value !== '') {
+        const confirmation = window.confirm("Are you sure you want to complete Task?");
+        if (confirmation) {
+            document.getElementById("myForm").submit();
+        } else {
+            document.getElementById("myForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+            });
+
+        }
+    }
+}
+}
+
+
 
 init();

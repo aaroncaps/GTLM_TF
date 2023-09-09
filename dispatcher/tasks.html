@@ -72,7 +72,18 @@
                 </div>
                 <div class="divtoggle">
                     <h2>Tasks</h2>
+                    
                 <!-- put your code here -->
+                <div class="filterstatus">
+                     <select id="filterdropdown" name="Status">
+                        <option value="All">All</option>
+                        <option value="Incoming Tasks">Incoming Tasks</option>
+                        <option value="In Review">In Review</option>
+                        <option value="Declined Tasks">Declined Tasks</option>
+                        <option value="Assigned & In Progress">Assigned & In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
                 <button class="buttoggle" id="toggleViewButton"></button>
                 </div>
                 
@@ -184,6 +195,22 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="ListView">
+                    <table id="tasktable">
+                        <thead>
+                          <tr>
+                            <th>Task Number</th>
+                            <th>Task</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                            <th>Assigned To</th>
+                          </tr>
+                        </thead>
+                        <tbody id="TaskTableBody">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

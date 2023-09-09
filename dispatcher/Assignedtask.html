@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supervisor - Reports</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../styles/navigation.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!-- js -->
+    <script src="../js/core.js"></script>
+    <script src="../js/dispatcher.js" defer></script>
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar begins -->
+    <div class="wrapper">
+        <div class="left_navbar">
+            <div class="logo">
+                <img src="../images/Logo.png" alt="" />
+            </div>
+            <ul>
+                <a href="tasks.html">
+                    <li>Tasks</li>
+                </a>
+                <a href="reports.html">
+                    <li>Reports</li>
+                </a>
+                <a href="calendar.html">
+                    <li>Calender</li>
+                </a>
+            </ul>
+        </div>
+        <div class="right_content">
+            <div class="upper_navbar">
+                <!-- hamurger menu starts -->
+                <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+                <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+                <!-- hamburger menu ends -->
+                <a href="#">Profile</a>
+                <a href="#">Help & Support</a>
+                <a href="#">Logout</a>
+            </div>
+            <div class="main_content">
+                <div class="mobile_menu">
+                    <ul>
+                        <a href="tasks.html">
+                            <li>Tasks</li>
+                        </a>
+                        <a href="reports.html">
+                            <li>Reports</li>
+                        </a>
+                        <a href="calendar.html">
+                            <li>Calender</li>
+                        </a>
+                        <a href="profile.html">
+                            <li>Profile</li>
+                        </a>
+                        <a href="#">
+                            <li>Help & Support</li>
+                        </a>
+                        <a href="#">
+                            <li>Logout</li>
+                        </a>
+                    </ul>
+                </div>
+                 <h2>Tasks > Assigned & In Progress</h2>
+                    
+                <!-- put your code here -->
+                <form class="readOnly" id="taskForm">
+                    <div class="inc-task">
+                    <label for="task-number">Task Number:</label>
+                    <input type="text" class="readOnly" id="task-number" name="task-number" readonly />
+                </div>
+            <div class="inc-task">
+                    <label for="date-created">Date Created:</label>
+                    <input type="text" class="readOnly" id="date-created" name="date-created" readonly><br>
+                  
+                    </div>
+            <div class="inc-task">
+                    <label for="task">Task:</label>
+                    <input type="text" class="readOnly" id="task" name="task" readonly><br>
+                   
+                </div>
+                <div class="inc-task">
+                    <label for="status">Status:</label>
+                    <input type="text" class="readOnly" id="status" name="status" readonly><br>
+                </div>
+                <div class="inc-task">
+                    <label for="assigned-to">Assigned To:</label>
+                    <input type="text" class="readOnly" id="assigned-to" name="assigned-to" readonly><br>
+                </div>
+                <div class="inc-task">
+                    <label for="detail">Detail:</label><br>
+                    <textarea id="detail" class="readOnly" name="detail" rows="4" cols="50" readonly></textarea>
+                </div>
+                <div class="inc-task">
+                    <button type="button" onclick="cancelButton()">Cancel</button>
+                    <button type="submit" onclick="Submit('AssignedTask')">Complete Task</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cleardiv"></div>
+    <!-- -->
+</body>
+
+</html>
