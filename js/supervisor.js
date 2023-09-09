@@ -122,6 +122,7 @@ function getUrlParam(name) {
     return params.has(name) ? params.get(name) : "";
 }
 
+//Dummy data for the list of groups
 const groups = [
     {
         groupId:     "G1234",
@@ -179,6 +180,7 @@ const groups = [
     },
 ];
 
+//Dummy data for the list of security officers
 const securityOfficers = [
     {
         userId: "32112",
@@ -206,6 +208,7 @@ const securityOfficers = [
     },
 ];
 
+//Dummy data for the list of security officers that has a group
 const securityOfficersGrouped = [
     {
         userId: "32112",
@@ -300,22 +303,22 @@ function populateTable(name) {
 function init() {
     const currentPagePath = window.location.pathname;
     const currentPageName = currentPagePath.split("/").pop();
-    const groupName = document.getElementById("group-name");
     console.log("Current Page Name:", currentPageName);
 
-    if(currentPageName == 'groups_create.html') {
+    if(currentPageName == 'groups.html') {
+        //popoulate the list of security officers
+        populateTable('groups');
+    } else if(currentPageName == 'groups_create.html') {
         //popoulate the list of security officers
         populateTable('so');
     } else if(currentPageName == 'groups_update.html') {
+        const groupName = document.getElementById("group-name");
         if(groupName!=null) {
             //gets the parameter passed from groups.html
             groupName.value = getUrlParam("groupName");
         }
         populateTable('soGrouped');
         populateTable('so');
-    } else {
-        //populate the list of groups
-        populateTable('groups');
     }
 }
 init();
