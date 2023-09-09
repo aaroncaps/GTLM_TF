@@ -190,18 +190,34 @@ const groups = [
 
 const securityOfficers = [
     {
-        userId:     "32112",
-        name: "Goola Wola",
+        userId: "32112",
+        name:   "Goola Wola",
     },
     {
-        userId:     "32112",
-        name: "Goola Wola",
+        userId: "32113",
+        name:   "David Guteela",
+    },
+    {
+        userId: "32114",
+        name:   "Usher Leeva",
+    },
+    {
+        userId: "32115",
+        name:   "Gento Lomibao",
+    },
+    {
+        userId: "32116",
+        name:   "Anderson Lee",
+    },
+    {
+        userId: "32117",
+        name:   "Happy Forrest",
     },
 
 ];
 
-// Function to create a table row 
-function createTableRow(group) {
+// Function to create a table row for groups
+function createTableRowGroup(group) {
     const row = document.createElement("tr");
     const groupIdCell = document.createElement("td");
     const dateCreatedCell = document.createElement("td");
@@ -231,14 +247,45 @@ function createTableRow(group) {
     return row;
 }
 
+// Function to create a table row for SOs
+function createTableRowSo(so) {
+    const row = document.createElement("tr");
+    const checkboxCell = document.createElement("td");
+    const checkbox = document.createElement("input");
+    const userIdCell = document.createElement("td");
+    const nameCell = document.createElement("td");
+
+    checkbox.type = "checkbox";
+    checkbox.className = "checkbox";
+    checkboxCell.appendChild(checkbox);
+    
+    userIdCell.textContent = so.userId;
+    nameCell.textContent = so.name;
+
+    row.appendChild(checkboxCell);
+    row.appendChild(userIdCell);
+    row.appendChild(nameCell);
+
+    return row;
+}
+
 // Function to populate the table with data
-function populateTable() {
-    const groupTableBody = document.getElementById("groupTableBody");
-    groupTableBody.innerHTML = "";
-    groups.forEach(group => {
-        const tableRow = createTableRow(group);
-        groupTableBody.appendChild(tableRow);
-    });
+function populateTable(name) {
+    if(name == 'groups') {
+        const groupTableBody = document.getElementById("groupTableBody");
+        groupTableBody.innerHTML = "";
+        groups.forEach(group => {
+            const tableRow = createTableRowGroup(group);
+            groupTableBody.appendChild(tableRow);
+        });        
+    } else if(name == 'so') {
+        const soTableBody = document.getElementById("soTableBody");
+        soTableBody.innerHTML = "";
+        securityOfficers.forEach(so => {
+            const tableRow = createTableRowSo(so);
+            soTableBody.appendChild(tableRow);
+        });        
+    } 
 }
 
 function init() {
@@ -247,13 +294,18 @@ function init() {
     const groupName = document.getElementById("group-name");
     console.log("Current Page Name:", currentPageName);
 
-    if(groupName!=null) {
-        //gets the parameter passed from groups.html
-        groupName.value = getUrlParam("groupName");
-    }
-    if(currentPageName == 'groups.html') {
-        populateTable();
-    }
     
+    if(currentPageName == 'groups_create.html') {
+        //popoulate the list of security officers
+        populateTable('so');
+    } else if(currentPageName == 'groups_update.html') {
+        if(groupName!=null) {
+            //gets the parameter passed from groups.html
+            groupName.value = getUrlParam("groupName");
+        }
+    } else {
+        //populate the list of groups
+        populateTable('groups');
+    }
 }
 init();
