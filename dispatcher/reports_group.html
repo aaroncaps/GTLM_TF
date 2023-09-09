@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dispatcher - Reports for Group</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../styles/navigation.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!-- js -->
+    <script src="../js/core.js"></script>
+    <script src="../js/dispatcher.js" defer></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar begins -->
+    <div class="wrapper">
+        <div class="left_navbar">
+            <div class="logo">
+                <img src="../images/Logo.png" alt="" />
+            </div>
+            <ul>
+                <a href="tasks.html">
+                    <li>Tasks</li>
+                </a>
+                <a href="reports.html">
+                    <li>Reports</li>
+                </a>
+                <a href="calendar.html">
+                    <li>Calender</li>
+                </a>
+            </ul>
+        </div>
+        <div class="right_content">
+            <div class="upper_navbar">
+                <!-- hamurger menu starts -->
+                <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+                <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+                <!-- hamburger menu ends -->
+                <a href="#">Profile</a>
+                <a href="#">Help & Support</a>
+                <a href="#">Logout</a>
+            </div>
+            <div class="main_content">
+                <div class="mobile_menu">
+                    <ul>
+                        <a href="tasks.html">
+                            <li>Tasks</li>
+                        </a>
+                        <a href="reports.html">
+                            <li>Reports</li>
+                        </a>
+                        <a href="calendar.html">
+                            <li>Calender</li>
+                        </a>
+                        <a href="profile.html">
+                            <li>Profile</li>
+                        </a>
+                        <a href="#">
+                            <li>Help & Support</li>
+                        </a>
+                        <a href="#">
+                            <li>Logout</li>
+                        </a>
+                    </ul>
+                </div>
+                <h2>Reports > Group & Supervisor</h2>
+                <!-- put your code here -->
+                <form id="myForm" action="reports.html" method="GET">
+                    <label for="id-task">Task:</label>
+                    <output id="id-task" name="task"></output>
+                    <br>
+                    <div id="id-task-group">
+                        <label for="id-group">Group:</label>
+                        <output id="id-group" name="group"></output>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Date Submitted</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportsGroupTableBody">
+                                <!-- table body will be created by JavaScript supervisor.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="supervisior-task-so">
+                        <label for="supervisior-name">Supervisior:</label>
+                        <output id="supervisior-name" name="supervisior"></output>
+                        <br><br>
+                        <span class="readOnly">
+                            <label for="supervisior-reports-so">Comment:</label>
+                            <textarea id="supervisior-report-so" name="report" rows="8" cols="50" readonly></textarea>
+                        </span>
+                    </div>
+                    
+                    <br>
+                    <h3>Dispatcher Report</h3>
+                    <span class="labelAndTextarea">
+                        <label for="id-report">Report:</label>
+                        <textarea id="id-report" name="report" rows="8" cols="50" required></textarea>
+                    </span>
+                    <div class="right-button">
+                        <button type="button" onclick="cancelButton()">Cancel</button>
+                        <button type="submit" id="createGroupBtn" onclick="confirmSubmitReport()">
+                            Submit Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cleardiv"></div>
+    <!-- -->
+</body>
+
+</html>
