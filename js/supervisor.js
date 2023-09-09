@@ -532,12 +532,28 @@ function init() {
         populateTable('reports');
     } else if (currentPageName == 'reports_group.html') {
         const taskId = document.getElementById("id-task");
-        const taskName = document.getElementById("id-group");
+        const taskGroup = document.getElementById("id-group");
+        const taskName = document.getElementById("id-name");
+        const divGroup = document.getElementById("id-task-group");
+        const divSo = document.getElementById("id-task-so");
         if (taskId != null) {
             //gets the parameter passed from reports.html
             taskId.value = "#" + getUrlParam("taskId") + " " + getUrlParam("taskName");
         }
-        taskName.value = "#G1234 Team AAA"; //Dummy data
+        //Dummy data condition and data
+        if(getUrlParam("taskId") == '12304') {
+            const reportSo = document.getElementById("id-report-so");
+            taskName.value = "Lisa Erich"
+            divGroup.style.display = "none";
+            divSo.style.display = "block";
+            reportSo.value = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."; //Dummy data
+            displayImageLink();
+        } else {
+            taskGroup.value = "#G1234 Team AAA"; 
+            divGroup.style.display = "block";
+            divSo.style.display = "none";
+        }
+        
         populateTable('reportsGroup')
     } else if (currentPageName == 'reports_group_so.html') {
         const userId = document.getElementById("id-user");
