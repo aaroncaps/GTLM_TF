@@ -491,6 +491,23 @@ function populateTable(name) {
     }
 }
 
+// This function needs to be updated in the next cycle
+function displayImageLink() {
+    const anchor = document.createElement('a');
+    anchor.href = '../images/security2.jpg';
+    anchor.target = '_blank';
+
+    const image = document.createElement('img');
+    image.className = 'image-link';
+    image.src = '../images/security2.jpg';
+    image.alt = 'A Security Officer in action';
+
+    anchor.appendChild(image);
+
+    const container = document.getElementById('attachedImage');
+    container.appendChild(anchor);
+}
+
 function init() {
     const currentPagePath = window.location.pathname;
     const currentPageName = currentPagePath.split("/").pop();
@@ -532,6 +549,7 @@ function init() {
             userName.value = getUrlParam("userName");
         }
         report.value = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."; //Dummy data
+        displayImageLink();
     }
 }
 init();
