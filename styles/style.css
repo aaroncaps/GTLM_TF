@@ -58,6 +58,17 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
 }
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+output {
+    display: inline-block;
+    padding: 5px;
+
+}
 /* ==================================================================
 CHECK THE CREATED CLASSES BELOW BEFORE YOU CREATE A NEW ONE. 
 DO NOT DELETE OR UPDATE THE CLASS
@@ -87,6 +98,16 @@ Please reuse the classes below by placing it in a div or span tags.
 .readOnly input {
     background-color: #dadada; 
 
+}
+
+/* creates a horizontal line for division purposes */
+.horizontal-line {
+    border-top: 1px solid #000; 
+    margin: 10px 0; 
+}
+
+.labelAndTextarea textarea {
+    width: 100%; 
 }
 
 /* ==================================================================

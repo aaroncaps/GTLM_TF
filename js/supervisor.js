@@ -6,10 +6,18 @@ function redirectToGroupsUpdatePage(groupId, groupName) {
     window.location.href = newUrl;
 }
 
-//function called by groups.html and redirects to reports_create.html
-function redirectToReportsCreatePage(taskId, taskName) {
-    const baseUrl = 'reports_create.html'; 
+//function called by groups.html and redirects to reports_group.html
+function redirectToReportsGroupPage(taskId, taskName) {
+    const baseUrl = 'reports_group.html'; 
     const queryParams = `?taskId=${encodeURIComponent(taskId)}&taskName=${encodeURIComponent(taskName)}`;
+    const newUrl = baseUrl + queryParams;
+    window.location.href = newUrl;
+}
+
+//function called by reports_group.html and redirects to reports_group_so.html
+function redirectToReportsGroupSoPage(userId, userName) {
+    const baseUrl = 'reports_group_so.html'; 
+    const queryParams = `?userId=${encodeURIComponent(userId)}&userName=${encodeURIComponent(userName)}`;
     const newUrl = baseUrl + queryParams;
     window.location.href = newUrl;
 }
@@ -224,6 +232,92 @@ const securityOfficersGrouped = [
     },
 ];
 
+const reports = [
+    {
+        taskId:        "12315",
+        taskName:      "Mikey Salis",
+        lastSubmitted: "03-Sep-2023"
+    },
+    {
+        taskId:        "12314",
+        taskName:      "On Site check and surveillance team needed",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12313",
+        taskName:      "Threat assessment needed at area BHD",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12312",
+        taskName:      "Asset surveillance required for Mr. Chong",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12311",
+        taskName:      "Surveillance at DKLL",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12310",
+        taskName:      "Surveillance at DKJJ",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12309",
+        taskName:      "Surveillance at DKFF",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12308",
+        taskName:      "Surveillance at DKDD",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12307",
+        taskName:      "Surveillance at DKD12",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12306",
+        taskName:      "Surveillance at BBBB",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12305",
+        taskName:      "Surveillance at GGGG",
+        lastSubmitted: "02-Sep-2023"
+    },
+    {
+        taskId:        "12304",
+        taskName:      "Surveillance at HHH",
+        lastSubmitted: "01-Sep-2023"
+    },
+];
+
+const reportsGroup = [
+    {
+        userId:        "71234",
+        dateSubmitted: "03-Sep-2023",
+        name:          "Yoyo Moley"
+    },
+    {
+        userId:        "21235",
+        dateSubmitted: "02-Sep-2023",
+        name:          "Henry Cavil"
+    },
+    {
+        userId:        "31236",
+        dateSubmitted: "02-Sep-2023",
+        name:          "Uma Therman"
+    },
+    {
+        userId:        "51237",
+        dateSubmitted: "-",
+        name:          "Blade Heley"
+    },
+];
+
 // Function to create a table row for groups
 function createTableRowGroup(group) {
     const row = document.createElement("tr");
@@ -248,6 +342,56 @@ function createTableRowGroup(group) {
     row.appendChild(dateCreatedCell);
     row.appendChild(nameCell);
     row.appendChild(taskIdCell);
+
+    return row;
+}
+
+// Function to create a table row for reports
+function createTableReports(report) {
+    const row = document.createElement("tr");
+    const taskIdCell = document.createElement("td");
+    const taskNameCell = document.createElement("td");
+    const lastSubmittedCell = document.createElement("td");
+    const reportLink = document.createElement("a");
+
+    reportLink.href = "javascript:void(0);";
+    reportLink.textContent = `#${report.taskId}`;
+    reportLink.onclick = function () {
+        redirectToReportsGroupPage(report.taskId, report.taskName);
+    };
+
+    taskIdCell.appendChild(reportLink);
+    taskNameCell.textContent = report.taskName;
+    lastSubmittedCell.textContent = report.lastSubmitted;
+
+    row.appendChild(taskIdCell);
+    row.appendChild(taskNameCell);
+    row.appendChild(lastSubmittedCell);
+
+    return row;
+}
+
+// Function to create a table row for groups in the report
+function createTableReportsGroup(reportGroup) {
+    const row = document.createElement("tr");
+    const userIdCell = document.createElement("td");
+    const dateSubmittedCell = document.createElement("td");
+    const nameCell = document.createElement("td");
+    const reportGroupLink = document.createElement("a");
+
+    reportGroupLink.href = "javascript:void(0);";
+    reportGroupLink.textContent = `#${reportGroup.userId}`;
+    reportGroupLink.onclick = function () {
+        redirectToReportsGroupSoPage(reportGroup.userId, reportGroup.name);
+    };
+
+    userIdCell.appendChild(reportGroupLink);
+    dateSubmittedCell.textContent = reportGroup.dateSubmitted;
+    nameCell.textContent = reportGroup.name;
+
+    row.appendChild(userIdCell);
+    row.appendChild(dateSubmittedCell);
+    row.appendChild(nameCell);
 
     return row;
 }
@@ -297,6 +441,20 @@ function populateTable(name) {
             const tableRow = createTableRowSo(soGrouped);
             soGroupedTableBody.appendChild(tableRow);
         });        
+    } else if(name == 'reports') {
+        const reportsTableBody = document.getElementById("reportsTableBody");
+        reportsTableBody.innerHTML = "";
+        reports.forEach(report => {
+            const tableRow = createTableReports(report);
+            reportsTableBody.appendChild(tableRow);
+        });        
+    } else if(name == 'reportsGroup') {
+        const reportsGroupTableBody = document.getElementById("reportsGroupTableBody");
+        reportsGroupTableBody.innerHTML = "";
+        reportsGroup.forEach(reportGroup => {
+            const tableRow = createTableReportsGroup(reportGroup);
+            reportsGroupTableBody.appendChild(tableRow);
+        });        
     } 
 }
 
@@ -319,6 +477,18 @@ function init() {
         }
         populateTable('soGrouped');
         populateTable('so');
+    } else if(currentPageName == 'reports.html') {
+        //popoulate the list of task for reports
+        populateTable('reports');
+    } else if(currentPageName == 'reports_group.html') {
+        const taskId = document.getElementById("id-task");
+        const taskName = document.getElementById("id-group");
+        if(taskId!=null) {
+            //gets the parameter passed from reports.html
+            taskId.value = "#"+getUrlParam("taskId")+" "+getUrlParam("taskName");
+        }
+        taskName.value = "#G1234 Team AAA"; //Dummy data
+        populateTable('reportsGroup')
     }
 }
 init();

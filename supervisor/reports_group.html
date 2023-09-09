@@ -71,116 +71,30 @@
                 <h2>Reports</h2>
                 <!-- put your code here -->
                 <form>
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>User ID</th>
-                                    <th>Date Submitted</th>
-                                    <th>Name</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12315', 'Secure perimeter fencing around BFH area')">#71234</a>
-                                    </td>
-                                    <td>03-Sep-2023</td>
-                                    <td>Yoyo Moley</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12314', 'On Site check and surveillance team needed')">#12314</a>
-                                    </td>
-                                    <td>On Site check and surveillance team needed</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12313', 'Threat assessment needed at area BHD')">#12313</a>
-                                    </td>
-                                    <td>Threat assessment needed at area BHD</td>
-                                    <td>03-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12312', 'Asset surveillance required for Mr. Chong')">#12312</a>
-                                    </td>
-                                    <td>Asset surveillance required for Mr. Chong</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12311', 'Surveillance at DKLL')">#12311</a>
-                                    </td>
-                                    <td>Surveillance at DKLL</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12310', 'Surveillance at DKJJ')">#12310</a>
-                                    </td>
-                                    <td>Surveillance at DKJJ</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12309', 'Surveillance at DKFF')">#12309</a>
-                                    </td>
-                                    <td>Surveillance at DKFF</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12308', 'Surveillance at DKDD')">#12308</a>
-                                    </td>
-                                    <td>Surveillance at DKDD</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12307', 'Surveillance at DKD12')">#12307</a>
-                                    </td>
-                                    <td>Surveillance at DKD12</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12306', 'Surveillance at BBBB')">#12306</a>
-                                    </td>
-                                    <td>Surveillance at BBBB</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12305', 'Surveillance at GGGG')">#12305</a>
-                                    </td>
-                                    <td>Surveillance at GGGG</td>
-                                    <td>02-Sep-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0);"
-                                            onclick="redirectToReportsCreatePage('12304', 'Surveillance at HHH')">#12304</a>
-                                    </td>
-                                    <td>Surveillance at HHH</td>
-                                    <td>01-Sep-2023</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <label for="id-task">Task:</label>
+                    <output id="id-task" name="task"></output>
+                    <br>
+                    <label for="id-group">Group:</label>
+                    <output id="id-group" name="group"></output>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Date Submitted</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportsGroupTableBody">
+                            <!-- table body will be created by JavaScript supervisor.js -->
+                        </tbody>
+                    </table>
+                    <br>
+                    <div class="horizontal-line"></div>
+                    <h3>Supervisor Report</h3>
+                    <span class="labelAndTextarea">
+                        <label for="id-report">Report:</label>
+                        <textarea id="id-report" name="report" rows="4" cols="50"></textarea>
+                    </span>
                 </form>
             </div>
         </div>
