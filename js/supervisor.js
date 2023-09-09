@@ -1,13 +1,3 @@
-function init() {
-    const groupName = document.getElementById("group-name");
-    if(groupName!=null) {
-        //gets the parameter passed from groups.html
-        groupName.value = getUrlParam("groupName");
-    }
-    
-}
-init();
-
 //function called by groups.html and redirects to groups_update.html
 function redirectToGroupsUpdatePage(groupId, groupName) {
     const baseUrl = 'groups_update.html'; 
@@ -131,3 +121,139 @@ function getUrlParam(name) {
     const params = new URLSearchParams(window.location.search);
     return params.has(name) ? params.get(name) : "";
 }
+
+const groups = [
+    {
+        groupId:     "G1234",
+        dateCreated: "03-Sep-2023",
+        name:        "Team AAA",
+        status:      "Team AAA",
+        taskId:      "12390",
+    },
+    {
+        groupId:     "G1235",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Hulk",
+        status:      "Team Hulk",
+        taskId:      "-",
+    },
+    {
+        groupId:     "G1236",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Azure",
+        status:      "Unassigned",
+        taskId:      "-",
+    },
+    {
+        groupId:     "G1237",
+        dateCreated: "02-Sep-2023",
+        name:        "Team BBB",
+        status:      "Unassigned",
+        taskId:      "-",
+    },
+    {
+        groupId:     "G1238",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Offense",
+        status:      "Assigned",
+        taskId:      "12391",
+    },
+    {
+        groupId:     "G1239",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Defense",
+        status:      "Assigned",
+        taskId:      "12392",
+    },
+    {
+        groupId:     "G1210",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Support",
+        status:      "Assigned",
+        taskId:      "12393",
+    },
+    {
+        groupId:     "G1211",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Komsat",
+        status:      "Assigned",
+        taskId:      "12394",
+    },
+    {
+        groupId:     "G2312",
+        dateCreated: "02-Sep-2023",
+        name:        "Team Strong",
+        status:      "Assigned",
+        taskId:      "12395",
+    },
+];
+
+const securityOfficers = [
+    {
+        userId:     "32112",
+        name: "Goola Wola",
+    },
+    {
+        userId:     "32112",
+        name: "Goola Wola",
+    },
+
+];
+
+// Function to create a table row 
+function createTableRow(group) {
+    const row = document.createElement("tr");
+    const groupIdCell = document.createElement("td");
+    const dateCreatedCell = document.createElement("td");
+    const nameCell = document.createElement("td");
+    const statusCell = document.createElement("td");
+    const taskIdCell = document.createElement("td");
+    const groupLink = document.createElement("a");
+
+    groupLink.href = "javascript:void(0);";
+    groupLink.textContent = `#${group.groupId}`;
+    groupLink.onclick = function () {
+        redirectToGroupsUpdatePage(group.groupId, group.name);
+    };
+
+    groupIdCell.appendChild(groupLink);
+    dateCreatedCell.textContent = group.dateCreated;
+    nameCell.textContent = group.name;
+    statusCell.textContent = group.status;
+    taskIdCell.textContent = group.taskId;
+
+    row.appendChild(groupIdCell);
+    row.appendChild(dateCreatedCell);
+    row.appendChild(nameCell);
+    row.appendChild(statusCell);
+    row.appendChild(taskIdCell);
+
+    return row;
+}
+
+// Function to populate the table with data
+function populateTable() {
+    const groupTableBody = document.getElementById("groupTableBody");
+    groupTableBody.innerHTML = "";
+    groups.forEach(group => {
+        const tableRow = createTableRow(group);
+        groupTableBody.appendChild(tableRow);
+    });
+}
+
+function init() {
+    const currentPagePath = window.location.pathname;
+    const currentPageName = currentPagePath.split("/").pop();
+    const groupName = document.getElementById("group-name");
+    console.log("Current Page Name:", currentPageName);
+
+    if(groupName!=null) {
+        //gets the parameter passed from groups.html
+        groupName.value = getUrlParam("groupName");
+    }
+    if(currentPageName == 'groups.html') {
+        populateTable();
+    }
+    
+}
+init();

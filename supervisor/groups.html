@@ -68,12 +68,12 @@
             </a>
           </ul>
         </div>
-        <h2>Tasks</h2>
+        <h2>Groups</h2>
         <!-- put your code here -->
         <form action="groups_create.html" method="GET">
           <div>
             <label for="status-filter">Filtered by status:</label>
-            <select class="select-box">
+            <select class="select-box" id="status-filter">
               <option value="assigned">Assigned</option>
               <option value="unassigned">Unassigned</option>
             </select>
@@ -84,91 +84,11 @@
                   <th>Date Created</th>
                   <th>Name</th>
                   <th>Status</th>
-                  <th>Task Number</th>
+                  <th>Task ID</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1234', 'Team AAA')">#G1234</a>
-                  </td>
-                  <td>03-Sep-2023</td>
-                  <td>Team AAA</td>
-                  <td>Assigned</td>
-                  <td>#12390</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1235', 'Team Hulk')">#G1235</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Hulk</td>
-                  <td>Unassigned</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1236', 'Team Azure')">#G1236</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Azure</td>
-                  <td>Unassigned</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1237', 'Team BBB')">#G1237</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team BBB</td>
-                  <td>Unassigned</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1238', 'Team Offense')">#G1238</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Offense</td>
-                  <td>Assigned</td>
-                  <td>#12391</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1239', 'Team Defense')">#G1239</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Defense</td>
-                  <td>Assigned</td>
-                  <td>#12392</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1210', 'Team Support')">#G1210</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Support</td>
-                  <td>Assigned</td>
-                  <td>#12393</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G1211', 'Team Komsat')">#G1211</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Komsat</td>
-                  <td>Assigned</td>
-                  <td>#12394</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="javascript:void(0);" onclick="redirectToGroupsUpdatePage('G2312', 'Team Strong')">#G2312</a>
-                  </td>
-                  <td>02-Sep-2023</td>
-                  <td>Team Strong</td>
-                  <td>Assigned</td>
-                  <td>#12395</td>
-                </tr>
+              <tbody id="groupTableBody">
+                <!-- table body will be created by JavaScript supervisor.js -->
               </tbody>
             </table>
             <div class="right-button">
