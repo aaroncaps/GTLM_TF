@@ -95,7 +95,22 @@
                     <label for="assigned-to">Assigned To:</label>
                     <div class="inc-inc-task">
                     <input type="text" class="readOnly" id="assigned-to" name="assigned-to"><br>
-                    <button type="button">Search Supervisor</button><br>
+                    <div class="dropdown">
+                        <button type="button" onclick="toggleDropdown()">Search Supervisor</button>
+                        <div class="dropdown-content" id="myDropdown">
+                            <input id="dropdownsearch" type="text" placeholder="Search for items" onkeyup="filterItems()">
+                            <ul id="itemList">
+                                <li>May Sander</li>
+                                <li>Jake Lim</li>
+                                <li>Luke Meyaa</li>
+                                <li>Tim Horton</li>
+                                <li>Luke Moses</li>
+                                <li>Avril Izak</li>
+                                <li>Gigi Hadid</li>
+                                <li>Ashley Li</li>
+                            </ul>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="inc-task">
@@ -104,7 +119,7 @@
                 </div>
                 <div class="inc-task">
                     <button type="button" onclick="cancelButton()">Cancel</button>
-                    <button type="submit" onclick="Submit('AssignedTask')">Complete Task</button>
+                    <button type="submit" onclick="Submit('IncomingTask')">Complete Task</button>
                 </div>
                 </form>
             </div>

@@ -654,7 +654,24 @@ function Submit(pagename) {
                 event.preventDefault();
             });
         }
-    }else{
+    }else if(pagename == 'DeclinedTask' || pagename == 'IncomingTask'){
+        if (assignedto.value !== '' && detail.value !== ''){
+        const confirmation = window.confirm("Do you want to assign the task to " + assignedto.value + " ?");
+        if (confirmation) {
+            document.getElementById("myForm").submit();
+        } else {
+            document.getElementById("myForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+            });
+        }
+    }
+    }
+    
+    
+    
+    
+    
+    {
     if (tasknumber.value !== '' && datecreated.value !== '' && task.value !== '' && status.value !== '' && assignedto.value !== '' && detail.value !== '') {
         const confirmation = window.confirm("Are you sure you want to complete Task?");
         if (confirmation) {
@@ -669,6 +686,39 @@ function Submit(pagename) {
 }
 }
 
+
+function toggleDropdown() {
+    var dropdown = document.getElementById("myDropdown");
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+}
+
+function filterItems() {
+    var input, filter, ul, li, i;
+    input = document.getElementById("dropdownsearch");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("itemList");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        if (li[i].textContent.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+var dropdownItems = document.querySelectorAll("#itemList li");
+        for (var i = 0; i < dropdownItems.length; i++) {
+            dropdownItems[i].addEventListener("click", function () {
+                var selectedItem = this.textContent;
+                document.getElementById("assigned-to").value = selectedItem;
+                document.getElementById("myDropdown").style.display = "none";
+            });
+        }
 
 
 init();
