@@ -2,17 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SO - TASKS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SO - Reports</title>
     <!-- css -->
-    <link rel="stylesheet" href="../styles/navigation.css">
-
-    <!-- js -->
-    <script src="../js/core.js"></script>
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="../styles/navigation.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
 </head>
 
 <body>
@@ -20,14 +15,15 @@
     <div class="wrapper">
         <div class="left_navbar">
             <div class="logo">
-                <img src="../images/logo.png" alt="">
+                <img src="../images/Logo.png" alt="" />
             </div>
             <ul>
-                <a href="tasks.html"><li>Tasks</li></a>
-                <a href="#"><li>Reports</li></a>
-                <a href="#"><li>Item 03</li></a>
-                <a href="#"><li>Item 04</li></a>
-                <a href="#"><li>Item 05</li></a>
+                <a href="tasks.html">
+                    <li>Tasks</li>
+                </a>
+                <a href="reports.html">
+                    <li>Reports</li>
+                </a>
             </ul>
         </div>
         <div class="right_content">
@@ -43,21 +39,47 @@
             <div class="main_content">
                 <div class="mobile_menu">
                     <ul>
-                        <a href="#"><li>Tasks</li></a>
-                        <a href="#"><li>Reports</li></a>
-                        <a href="#"><li>Profile</li></a>
-                        <a href="#"><li>Help & Support</li></a>
-                        <a href="#"><li>Logout</li></a>
+                        <a href="tasks.html">
+                            <li>Tasks</li>
+                        </a>
+                        <a href="reports.html">
+                            <li>Reports</li>
+                        </a>
+                        <a href="profile.html">
+                            <li>Profile</li>
+                        </a>
+                        <a href="#">
+                            <li>Help & Support</li>
+                        </a>
+                        <a href="#">
+                            <li>Logout</li>
+                        </a>
                     </ul>
                 </div>
-                <h2>Tasks</h2>
+                <h2>Reports</h2>
+                <h4>Task Lists</h4>
                 <!-- put your code here -->
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task Number</th>
+                                <th>Date Created</th>
+                                <th>Task</th>
+                                <th>Assigned To</th>
+                            </tr>
+                        </thead>
+                        <tbody id="TaskTableBody">
+                            <!-- List view rows will be dynamically generated here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
     <div class="cleardiv"></div>
-    <!-- -->
-
+    <!-- Include your JavaScript file -->
+    <script src="../js/securityofficer.js" defer></script>
 </body>
 
 </html>
