@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <td><a href="insert_report.html" onclick="redirectToInsertReport(${task.number}, '${task.task}')">${task.number}</a></td>
       <td>${task.task}</td>
     `;
-    reportsTableBody.appendChild(row);
+    reportsTableBody.innerHTML = innerHTML;
   });
 });
 
