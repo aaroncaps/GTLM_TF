@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SO - Reports</title>
+  <!-- css -->
+  <link rel="stylesheet" href="../styles/navigation.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- js -->
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+
+  
+</head>
+
+<body>
+  <!-- navbar begins -->
+  <div class="wrapper">
+    <div class="left_navbar">
+      <div class="logo">
+        <img src="../images/Logo.png" alt="" />
+      </div>
+      <ul>
+        <a href="tasks.html">
+          <li>Tasks</li>
+        </a>
+        <a href="reports.html">
+          <li>Reports</li>
+        </a>
+     
+      </ul>
+    </div>
+    <div class="right_content">
+      <div class="upper_navbar">
+        <!-- hamurger menu starts -->
+        <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+        <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+        <!-- hamburger menu ends -->
+        <a href="#">Profile</a>
+        <a href="#">Help & Support</a>
+        <a href="#">Logout</a>
+      </div>
+      <div class="main_content">
+        <div class="mobile_menu">
+          <ul>
+            <a href="tasks.html">
+              <li>Tasks</li>
+            </a>
+            <a href="reports.html">
+              <li>Reports</li>
+            </a>
+      
+            <a href="profile.html">
+              <li>Profile</li>
+            </a>
+            <a href="#">
+              <li>Help & Support</li>
+            </a>
+            <a href="#">
+              <li>Logout</li>
+            </a>
+          </ul>
+        </div>
+       
+        <!-- put your code here -->
+        <div class="main_content">
+            <!-- Existing content -->
+            <h2>Reports</h2>
+            <h4>Insert Report</h4>
+            <div class="container mt-5">
+                <form action="view_report.html" method="post" enctype="multipart/form-data" >
+                    <div class="form-group">
+                        <label for="taskId">Task ID</label>
+                        <input type="text" class="form-control" id="taskId" name="taskId" placeholder="#12315" >
+                    </div>
+                    <div class="form-group">
+                        <label for="taskName">Task Name</label>
+                        <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Secure perimeter fencing around BFH area" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Suspicious Activity</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="suspiciousActivity" rows="5" placeholder="Unidentified man attempted to reach for the arm of the client with no valid reason." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="uploadedImage" required>
+                            <label class="custom-file-label" for="exampleFormControlFile1">logo.png</label>
+                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                        </div>
+                    </div>
+                
+                 
+                    <button type="submit" class="button" onclick="editMessage()">Update</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cleardiv"></div>
+  <script>
+    function editMessage() {
+        var confirmDelete = confirm("Are you sure you want to edit this activity?");
+        if (confirmDelete) {
+            alert("Message updated!");
+            window.location.href = "view_report.html";
+        }
+    }
+</script>
+  <!-- -->
+</body>
+
+</html>
