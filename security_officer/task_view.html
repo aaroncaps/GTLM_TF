@@ -73,26 +73,26 @@
                     <h4>Tasks list</h4>
                     <div class="container mt-5">
                       <form action="reports.html" id="myForm" method="GET" enctype="multipart/form-data">
-                        <div class="form-group">
+                        <div class="form-group readOnly">
                             <label for="id-task">Task ID:</label>
                             <input type="text" id="id-task" name="task" readonly>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group readOnly">
                             <label for="task-name">Task Name:</label>
                             <input type="text" id="task-name" name="taskname" readonly>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group readOnly">
                             <label for="date">date:</label>
                             <input type="text" id="date" name="date" readonly>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group readOnly">
                             <label for="status">status:</label>
                             <input type="text" id="status" name="status" readonly>
                         </div>
                      
-                        <span class="labelAndTextarea">
+                        <span class="labelAndTextarea readOnly">
                             <label for="details">Details:</label>
                             <textarea id="details" name="details" rows="8" cols="50" required></textarea>
                         </span>
@@ -100,10 +100,7 @@
                     
                       
                         <div class="right-button">
-                            <button type="button" onclick="cancelButton()">Cancel</button>
-                            <button type="submit" id="createGroupBtn" onclick="submitForm()">Submit Report </button>
-                                
-                            </button>
+                            <button type="button" onclick="history.back()">Back</button>
                         </div>
                     </form>
                     
