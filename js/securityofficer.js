@@ -47,12 +47,15 @@ function enableSubmitButton() {
 }
 
 function submitForm() {
+  const idReport = document.getElementById('id-report');
+  if (idReport.value !== '') {
   var confirmSubmit = confirm("Are you sure you want to submit this report?");
 
   if (confirmSubmit) {
       var taskNumber = document.getElementById('id-task').value;
       window.location.href = `reports.html?taskNumber=${taskNumber}`;
   }
+}
 }
 
 
