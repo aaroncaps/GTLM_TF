@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supervisor - Accepted Task</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/navigation.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!-- JavaScript -->
+    <script src="../js/core.js"></script>
+    <script src="../js/supervisortask.js"></script>
+    <!--script src="../js/Accepted.js"></script-->
+    <script src="../js/reviewtask.js"></script>
+    
+    
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Navbar begins -->
+    <div class="wrapper">
+        <div class="left_navbar">
+            <div class="logo">
+                <img src="../images/Logo.png" alt="" />
+            </div>
+            <ul>
+                <a href="tasks.html">
+                    <li>Tasks</li>
+                </a>
+                <a href="reports.html">
+                    <li>Reports</li>
+                </a>
+                <a href="groups.html">
+                    <li>Groups</li>
+                </a>
+            </ul>
+        </div>
+        <div class="right_content">
+            <div class="upper_navbar">
+                <!-- Hamburger menu starts -->
+                <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+                <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+                <!-- Hamburger menu ends -->
+                <a href="#">Profile</a>
+                <a href="#">Help & Support</a>
+                <a href="#">Logout</a>
+            </div>
+            <div class="main_content">
+                <div class="mobile_menu">
+                    <ul>
+                        <a href="tasks.html">
+                            <li>Tasks</li>
+                        </a>
+                        <a href="reports.html">
+                            <li>Reports</li>
+                        </a>
+                        <a href="calendar.html">
+                            <li>Calendar</li>
+                        </a>
+                        <a href="profile.html">
+                            <li>Profile</li>
+                        </a>
+                        <a href="#">
+                            <li>Help & Support</li>
+                        </a>
+                        <a href="#">
+                            <li>Logout</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="main_content">
+                    <h2>Tasks > Accepted Task</h2>
+
+                    <!-- Task details placeholders with ID attributes -->
+                    <!-- Add placeholders for task details -->
+                    <!-- Accepted.html -->
+                    <div>
+                        <h1>Task Details</h1>
+                        <p><strong>Task Number:</strong> <input type="text" id="taskNumber" readonly></p>
+                        <p><strong>Date Created:</strong> <input type="text" id="dateCreated" readonly></p>
+                        <p><strong>Task:</strong> <input type="text" id="task" readonly></p>
+                        <p><strong>Status:</strong> <input type="text" id="status" readonly></p>
+                        <p><strong>Details:</strong> <textarea id="details" rows="4" readonly></textarea></p>
+                        <!-- Add a search button and a hidden dropdown -->
+                        <!-- Add a container div for the Assign To field and the dropdown -->
+                        <div>
+                            <p><strong>Assign To:</strong></p>
+                            <div style="position: relative; display: inline-block;">
+                                <input type="text" id="assignToOutput" readonly style="width: 150px; padding: 5px;">
+                                <button id="assignToSearchButton" style="padding: 5px;">Search</button>
+                                <div id="assignToDropdown" style="position: absolute; top: 100%; left: 0; background-color: #fff; border: 1px solid #ccc; display: none;">
+                                    <!-- Dropdown options will be added here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Assign Task button -->
+
+                    <button id="assignTaskButton">Assign Task</button>
+                </div>
+            </div>
+        </div>
+        <div class="cleardiv"></div>
+    </div>
+    <!-- -->
+</body>
+
+</html>
