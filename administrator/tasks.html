@@ -1,24 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Your Name">
-    <title>Tasks Page</title>
-    <link rel="stylesheet" type="text/css" href="../styles/style.css">
-</head>
-<body>
-    <!-- Your top navigation bar goes here -->
-    <div class="top-nav">
-        <ul>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help & Support</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-    </div>
 
-    <!-- Rest of your content for the Tasks page -->
-    <h1>Tasks Page Content</h1>
-    <p>This is where your tasks will be displayed.</p>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Tasks</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../styles/navigation.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    
+
+    <!-- js -->
+    <script src="../js/core.js"></script>
+    <script src="../js/admin.js" defer></script>
+    
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar begins -->
+    <div class="wrapper">
+        <div class="left_navbar">
+            <div class="logo">
+                <img src="../images/Logo.png" alt="" />
+            </div>
+            <ul>
+                <a href="tasks.html">
+                    <li>Tasks</li>
+                </a>
+                <a href="event_logs.html">
+                    <li>Event Logs</li>
+                </a>
+                <a href="system_settings.html">
+                    <li>System Settings</li>
+                </a>
+            </ul>
+        </div>
+        <div class="right_content">
+            <div class="upper_navbar">
+                <!-- hamurger menu starts -->
+                <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+                <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+                <!-- hamburger menu ends -->
+                <a href="#">Profile</a>
+                <a href="#">Help & Support</a>
+                <a href="#">Logout</a>
+            </div>
+            <div class="main_content">
+                <div class="mobile_menu">
+                    <ul>
+                        <a href="tasks.html">
+                            <li>Tasks</li>
+                        </a>
+                        <a href="event_logs.html">
+                            <li>Event Logs</li>
+                        </a>
+                        <a href="system_settings.html">
+                            <li>System Settings</li>
+                        </a>
+                        <a href="../profile/profile.html">
+                            <li>Profile</li>
+                        </a>
+                        <a href="../help_support/help_support.html">
+                            <li>Help & Support</li>
+                        </a>
+                        <a href="#">
+                            <li>Logout</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="divtoggle">
+                    <h2>Tasks</h2>
+                   <div class="filterstatus">
+                    <label for="statusFilter">Filter by Status:</label> 
+                    <select id="statusFilter" class="select-box">
+                        <option value="all">All</option>
+                        <option value="Onboarding">Onboarding</option>
+                        <option value="Assigned & In Progress">Assigned & In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                   </div> 
+                   <div>
+                        <button id="listViewButton" class="view-button active">List</button>
+                        <button id="kanbanViewButton" class="view-button">Kanban</button>  
+                    </div>    
+            
+                </div>
+
+                <div id="listView" class="">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Requested Number</th>
+                                <th>Requested Date</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taskList" class="">
+                           
+                            <td>
+                                <a href="task_details.html" class="task-link"></a>                    
+                            </td>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="kanbanView" class="adminKanban">
+                    <div class="kanban-columns">
+                        <div class="kanban-column" data-status="Onboarding">
+                            <span id="kanbanH2">
+                                <h2 id="kanbanHeading">Ongoing</h2>
+                            </span>
+                            
+                            <!-- Task cards for "Onboarding" status -->
+                        </div>
+                        <div class="kanban-column" data-status="Assigned & In Progress">
+                            <h2>Assigned & In Progress</h2>
+                            <!-- Task cards for "Assigned & In Progress" status -->
+                        </div>
+                        <div class="kanban-column" data-status="Completed">
+                            <h2>Completed</h2>
+                            <!-- Task cards for "Completed" status -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>        
 </body>
 </html>
