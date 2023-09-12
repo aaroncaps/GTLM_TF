@@ -461,7 +461,11 @@ function createTableReportsGroup(reportGroup) {
     return row;
 }
 
-
+function redirecttotask(){
+    const baseUrl = 'tasks.html';
+    const newUrl = baseUrl;
+    window.location.href = newUrl;
+}
 
 function redirectToReportsGroupPage(taskId, taskName) {
     const baseUrl = 'reports_group.html';
