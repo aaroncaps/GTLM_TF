@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SO - TASKS</title>
+    <title> Onboarding</title>
     <!-- css -->
     <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/style.css">
@@ -12,9 +12,10 @@
     <!-- js -->
     <script src="../js/core.js"></script>
     <script src="../js/admin.js"></script>
+    
+    
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
-
 
 </head>
 
@@ -28,7 +29,8 @@
             <ul>
                 <a href="tasks.html"><li>Tasks</li></a>
                 <a href="event_logs.html"><li>Event Logs</li></a>
-                <a href="system_settings.html"><li>System Settings</li></a>
+                <a href="system_settings.html"><li>Systen Settings</li></a>
+                
             </ul>
         </div>
         <div class="right_content">
@@ -39,50 +41,61 @@
                 <!-- hamburger menu ends -->
                 <a href="../profile/profile.html">Profile</a>
                 <a href="../help_support/help_support.html">Help & Support</a>
-                <a href="#">Logout</a>
+                <a href="">Logout</a>
             </div>
             <div class="main_content">
                 <div class="mobile_menu">
                     <ul>
                         <a href="tasks.html"><li>Tasks</li></a>
                         <a href="event_logs.html"><li>Event Logs</li></a>
-                        <a href="system_settings.html">System Settings</a>
                         <a href="../profile/profile.html"><li>Profile</li></a>
                         <a href="../help_support/help_support.html"><li>Help & Support</li></a>
-                        <a href="#"><li>Logout</li></a>
+                        <a href=""><li>Logout</li></a>
                     </ul>
                 </div>
-                <h2>System Settings</h2>
+                <h2>Tasks > Onboarding</h2>
                 <!-- put your code here -->
-                <div class="image-container">
+                <div id="taskDetails">
+                  <form class="onboarding-form">
+                    <p><strong>Requested Number:</strong> <span id="taskNumber"></span></p>
+        <p><strong>Requested Date:</strong> <span id="taskDate"></span></p>
+        <p><strong>Name:</strong> <span id="taskName"></span></p>
+        <p><strong>Status:</strong> <span id="taskStatus"></span></p>
+        <div class="onboarding-element">
+          <label for="role">Role:</label>
+            <select id="role" name="role" class="select-box">
+        
+            <option value="">Select a Role</option>
+              <!-- Add other options for roles here -->
+            <option value="Administrator">Administrator</option>
+            <option value="Dispatcher">Dispatcher</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Security Officer">Security Officer</option>
+            </select>
 
-                    
-                    <img src="../images/TF.png" alt="Login Image">
-                </div>
-                <div class="content">
-                    <h2>Login Screen Details</h2>
-                    <p id="loginDetails" class="readOnly"> </p>
-                    <div class="horizontal-line"></div>
-                    <h2>Help & Support</h2>
-                    <p id="helpSupport" class="readOnly"></p>
-                    <div class="right-button">
-                        <button id="updateButton">UPDATE</button>
-
-                    </div>
-                    
-                    
-                </div>
-                
-
-            </div>
         </div>
+        <div class="onboarding-element">
+          <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate">
+          
+
+        </div>
+
+        <div class="onboarding-element">
+          <label for="additionalMessage">Additional Message:</label>
+            <textarea id="additionalMessage" name="additionalMessage" rows="4"></textarea>
+
+        </div>
+
+         </form>
+        
     </div>
-    <div class="cleardiv"></div>
-    <!-- -->
+    <div class="right-button">
+        <button id="cancelButton" class="">Cancel</button>
+        <button id="submitButton" class="">Submit</button>
+    </div>
+    <script>
 
-</body>
-</html>
-
-    
+    </script>
 </body>
 </html>
