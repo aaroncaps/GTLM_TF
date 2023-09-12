@@ -511,6 +511,12 @@ function displayImageLink() {
     container.appendChild(anchor);
 }
 
+function redirecttotask(){
+    const baseUrl = 'tasks.html';
+    const newUrl = baseUrl;
+    window.location.href = newUrl;
+}
+
 function init() {
     const currentPagePath = window.location.pathname;
     const currentPageName = currentPagePath.split("/").pop();
