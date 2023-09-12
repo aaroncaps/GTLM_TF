@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const task = getQueryParam("Task");
     const status = getQueryParam("Status");
     const details = getQueryParam("Details");
+    const assignTo = getQueryParam("AssignedTo");
 
     // Populate the read-only input fields
     document.getElementById("taskNumber").value = taskNumber;
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("task").value = task;
     document.getElementById("status").value = status;
     document.getElementById("details").value = details;
+    document.getElementById("assignTo").textContent = assignTo;
 
     // Enable editing of the "Details" section (remove the readonly attribute)
     document.getElementById("enableEditButton").addEventListener("click", function () {
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent the form from actually submitting
         const updatedDetails = document.getElementById("details").value;
-        // Perform any actions with the updated details (e.g., send to the server)
+       
         console.log("Updated Details:", updatedDetails);
         // After handling the submission, you can reapply the readonly attribute if needed.
         document.getElementById("details").setAttribute("readonly", "true");
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // reviewtask.js
 
-// Add this code at the bottom of your existing reviewtask.js file
+
 
 // JavaScript code for handling button clicks and popup
 // Find the Decline button by its ID
@@ -73,3 +75,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Rest of your code...
 });
+//this is for completetask button senario in Assigned task 
+document.addEventListener("DOMContentLoaded", function () {
+    // Find the Complete Task button by its ID
+    const completeTaskButton = document.getElementById("completeTaskButton");
+
+    // Add a click event listener to the Complete Task button
+    completeTaskButton.addEventListener("click", function () {
+        // Display a confirmation dialog to the user
+        const confirmation = confirm("Are you sure you want to complete this task?");
+
+        // Check the user's choice
+        if (confirmation) {
+            // If the user confirms, redirect to "task.html"
+            window.location.href = "tasks.html";
+        } else {
+            // If the user cancels, do nothing or provide feedback
+            alert("Task completion was canceled.");
+        }
+    });
+});
+

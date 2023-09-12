@@ -2,8 +2,6 @@
 
 // Dummy data for the list of tasks
 
-
-// Dummy data for the list of tasks
 const tasks = [
     {
         taskNumber: "T1231",
@@ -160,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (confirmation) {
             // User clicked "OK" in the confirmation dialog, perform the assignment
-            // Add your assignment logic here
+            
 
             // For example, after performing the assignment, you can redirect to tasks.html
             window.location.href = "tasks.html";
@@ -225,10 +223,14 @@ function createTableRow(task) {
     // Create a clickable link for the task number
     const taskNumberLink = document.createElement("a");
     const reviewTaskUrl = `ReviewTask.html?TaskNumber=${encodeURIComponent(task.taskNumber)}&DateCreated=${encodeURIComponent(task.dateCreated)}&Task=${encodeURIComponent(task.task)}&Status=${encodeURIComponent(task.progress)}&Details=${encodeURIComponent(task.details)}`;
+    const acceptedTaskUrl = `Accepted.html?TaskNumber=${encodeURIComponent(task.taskNumber)}&DateCreated=${encodeURIComponent(task.dateCreated)}&Task=${encodeURIComponent(task.task)}&Status=${encodeURIComponent(task.progress)}&Details=${encodeURIComponent(task.details)}`;
+    const assignedTaskUrl = `Assigned.html?TaskNumber=${encodeURIComponent(task.taskNumber)}&DateCreated=${encodeURIComponent(task.dateCreated)}&Task=${encodeURIComponent(task.task)}&Status=${encodeURIComponent(task.progress)}&Details=${encodeURIComponent(task.details)}&AssignedTo=${encodeURIComponent(task.assignedTo)}`;
 
-    // Check if progress is "Accepted/Created Task"
-    if (task.progress === "Accepted/Created Task") {
-        taskNumberLink.href = `Accepted.html?TaskNumber=${encodeURIComponent(task.taskNumber)}&DateCreated=${encodeURIComponent(task.dateCreated)}&Task=${encodeURIComponent(task.task)}&Status=${encodeURIComponent(task.progress)}&Details=${encodeURIComponent(task.details)}`;
+    // Check if progress is "Assigned" or "In Progress"
+    if (task.progress === "Assigned & In Progress") {
+        taskNumberLink.href = assignedTaskUrl;
+    } else if (task.progress === "Accepted/Created Task") {
+        taskNumberLink.href = acceptedTaskUrl;
     } else {
         taskNumberLink.href = reviewTaskUrl;
     }
@@ -263,7 +265,7 @@ function getTaskPageUrl(task) {
     const urlMapping = {
         "Review Task": "ReviewTask.html", // Change this URL to your review task page
         "Accepted/Created Task": "Accepted.html", // Change this URL to your accepted task page
-        "Assigned & In Progress": "InProgressTask.html", // Change this URL to your in-progress task page
+        "Assigned & In Progress": "Assigned.html.html", // Change this URL to your in-progress task page
     };
 
     // Get the corresponding URL for the task's progress
@@ -338,7 +340,7 @@ const taskNumber = getUrlParameter("taskNumber");
 
 // Define a function to fetch task data based on the task number
 function fetchTaskData(taskNumber) {
-    // Replace this with your data retrieval logic, e.g., fetch from an API
+    
     const taskData = tasks.find(task => task.taskNumber === taskNumber);
     return taskData;
 }
@@ -353,6 +355,7 @@ if (taskData) {
     document.getElementById("task").textContent = taskData.task;
     document.getElementById("status").textContent = taskData.progress;
     document.getElementById("details").textContent = taskData.details;
+    document.getElementById("assignTo").textContent = taskData.assignedTo;
 } else {
     // Handle the case where the task data is not found
     console.error("Task data not found.");
