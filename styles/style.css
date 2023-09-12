@@ -356,3 +356,59 @@ textarea {
 .dropdown-content li:hover {
     background-color: #ddd;
 }
+
+
+
+/* ============= ADMINISTRATOR =============== */
+
+/*=============Kanban Styles==============*/
+
+.kanban-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-column {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+.task-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #dadada;
+}
+
+.adminKanban{
+    border: 1px solid #184B81;
+    margin: 10px;
+}
+
+.kanbanHeading{
+    background-color: #184B81;
+}
+
+.kanban-column h2 {
+    background-color: #184B81;
+    color: #dadada;
+    padding: 5px 10px; 
+    border-radius: 10px; 
+    text-align: center;
+}
+
+/* ====== Admin Onboarding Form===== */
+.onboarding-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.onboarding-element
+{
+    margin-bottom: 10px;
+}
+
+
+
