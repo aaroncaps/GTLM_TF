@@ -122,6 +122,11 @@ function displayImageNames(input) {
   imageNamesDisplay.textContent = imageNamesDisplay.textContent.slice(0, -2);
 }
 
+function redirecttotask(){
+  const baseUrl = 'tasks.html';
+  
+  window.location.href = baseUrl;
+}
 
 function redirectToInsertReport(taskNumber, taskName) {
   sessionStorage.setItem('taskNumber', taskNumber);
