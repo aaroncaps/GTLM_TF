@@ -164,6 +164,17 @@ Insert your new class/id below and write your name
     border-radius: 5px;
 }
 
+.kanban_wrapper .listso{
+    height: 140px;
+    border: 1px solid #184B81;
+    margin: 10px;
+    background-color: #dadada;
+    padding: 10px;
+    display: flex;
+    cursor: grab;
+    border-radius: 5px;
+}
+
 .kanban_wrapper .list .information h4, .kanban_wrapper .list .information p{
     padding: 0px !important;
     margin: 5px 5px !important;

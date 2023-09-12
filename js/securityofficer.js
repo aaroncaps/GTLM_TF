@@ -148,13 +148,13 @@ function toggleView() {
       // Switch back to Kanban view
       kanbanWrapper.style.display = 'flex';
       listview.style.display = 'none';
-      col1.style.display = 'block';
+      col1.style.display = 'flex';
   } else {
      // Switch to List view
      document.getElementById("toggleViewButton").innerText = "Kanban View";
      kanbanWrapper.style.display = 'none';
      listview.style.display = 'block';
-     col1.style.display = 'none';
+     col1.style.display = 'flex';
   }
 }
 
