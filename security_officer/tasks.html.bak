@@ -37,7 +37,7 @@
                 <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
                 <!-- hamburger menu ends -->
                 <a href="#">Profile</a>
-                <a href="help_support/help_support.html">Help & Support</a>
+                <a href="#">Help & Support</a>
                 <a href="#">Logout</a>
             </div>
             <div class="main_content">
@@ -57,6 +57,8 @@
     </div>
     <div class="cleardiv"></div>
     <!-- -->
+
+    
 
 </body>
 

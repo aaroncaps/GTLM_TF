@@ -265,6 +265,7 @@ const securityOfficersGrouped = [
     },
 ];
 
+// list of reports comming from security officers
 const reports = [
     {
         taskId: "12315",
@@ -328,6 +329,8 @@ const reports = [
     },
 ];
 
+
+// reports that belong to a particular group
 const reportsGroup = [
     {
         userId: "71234",

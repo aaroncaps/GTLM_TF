@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SO - Lists</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../styles/navigation.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- js -->
+    <script src="../js/core.js"></script>
+    <script src="../js/securityofficer.js" defer></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- navbar begins -->
+    <div class="wrapper">
+        <div class="left_navbar">
+            <div class="logo">
+                <img src="../images/Logo.png" alt="" />
+            </div>
+            <ul>
+                <a href="tasks.html">
+                    <li>Tasks</li>
+                </a>
+                <a href="reports.html">
+                    <li>Reports</li>
+                </a>
+            </ul>
+        </div>
+        <div class="right_content">
+            <div class="upper_navbar">
+                <!-- hamurger menu starts -->
+                <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+                <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+                <!-- hamburger menu ends -->
+                <a href="#">Profile</a>
+                <a href="#">Help & Support</a>
+                <a href="#">Logout</a>
+            </div>
+            <div class="main_content">
+                <div class="mobile_menu">
+                    <ul>
+                        <a href="tasks.html">
+                            <li>Tasks</li>
+                        </a>
+                        <a href="reports.html">
+                            <li>Reports</li>
+                        </a>
+                        <a href="profile.html">
+                            <li>Profile</li>
+                        </a>
+                        <a href="#">
+                            <li>Help & Support</li>
+                        </a>
+                        <a href="#">
+                            <li>Logout</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <!-- put your code here -->
+                <div class="main_content">
+                    <!-- Existing content -->
+                    <h2>Tasks</h2>
+                    <h4>Tasks list</h4>
+                    <div class="container mt-5">
+                      <form action="reports.html" id="myForm" method="GET" enctype="multipart/form-data">
+                        <div class="form-group readOnly">
+                            <label for="id-task">Task ID:</label>
+                            <input type="text" id="id-task" name="task" readonly>
+                        </div>
+                        <div class="form-group readOnly">
+                            <label for="task-name">Task Name:</label>
+                            <input type="text" id="task-name" name="taskname" readonly>
+                        </div>
+
+                        <div class="form-group readOnly">
+                            <label for="date">date:</label>
+                            <input type="text" id="date" name="date" readonly>
+                        </div>
+
+                        <div class="form-group readOnly">
+                            <label for="status">status:</label>
+                            <input type="text" id="status" name="status" readonly>
+                        </div>
+                     
+                        <span class="labelAndTextarea readOnly">
+                            <label for="details">Details:</label>
+                            <textarea id="details" name="details" rows="8" cols="50" required></textarea>
+                        </span>
+
+                    
+                      
+                        <div class="right-button">
+                            <button type="button" onclick="history.back()">Back</button>
+                        </div>
+                    </form>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cleardiv"></div>
+<!-- Add this modal at the end of your `insert_report.html` -->
+
+
+    <!-- -->
+</body>
+
+</html>

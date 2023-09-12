@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SO - Reports</title>
+  <!-- css -->
+  <link rel="stylesheet" href="../styles/navigation.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+
+  <!-- js -->
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- navbar begins -->
+  <div class="wrapper">
+    <div class="left_navbar">
+      <div class="logo">
+        <img src="../images/Logo.png" alt="" />
+      </div>
+      <ul>
+        <a href="tasks.html">
+          <li>Tasks</li>
+        </a>
+        <a href="reports.html">
+          <li>Reports</li>
+        </a>
+     
+      </ul>
+    </div>
+    <div class="right_content">
+      <div class="upper_navbar">
+        <!-- hamurger menu starts -->
+        <i class="fa-solid fa-bars" onclick="handleHamburger()"></i>
+        <i class="fa-solid fa-xmark" onclick="handleXmark()"></i>
+        <!-- hamburger menu ends -->
+        <a href="#">Profile</a>
+        <a href="#">Help & Support</a>
+        <a href="#">Logout</a>
+      </div>
+      <div class="main_content">
+        <div class="mobile_menu">
+          <ul>
+            <a href="tasks.html">
+              <li>Tasks</li>
+            </a>
+            <a href="reports.html">
+              <li>Reports</li>
+            </a>
+      
+            <a href="profile.html">
+              <li>Profile</li>
+            </a>
+            <a href="#">
+              <li>Help & Support</li>
+            </a>
+            <a href="#">
+              <li>Logout</li>
+            </a>
+          </ul>
+        </div>
+        <h2>Reports</h2>
+        <h4>Report Lists</h4>
+        <!-- put your code here -->
+      
+          <div>
+            <table>
+              <thead  class="thead-bg">
+                <tr>
+                  <th>Task Number</th>
+                  <th>Tasks</th>
+                  <th>Suspicious Activity</th>
+                  <th>Image</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#12316</td>
+                  <td>Secure perimeter fencing around BFH area</td>
+                  <td>Unidentified man attempted to reach for the arm of the client with no valid reason.</td>
+                  <td valign="middle" align="center"><img src="https://media.istockphoto.com/id/125556059/photo/gang-of-youths-fighting.jpg?s=2048x2048&w=is&k=20&c=JZmVSW1bMFxEBOFm3wSWkl7d1X2adhDjQL84c5FcVWc=" style="width:100px; height:100px;" /></td>
+                  <td class="button-cell"> <a href="edit_report.html"> <button type="button" class="btn btn-primary">Edit</button></a>
+                    <button type="button" class="btn btn-secondary" onclick="deleteMessage()">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>#12315</td>
+                    <td>Secure perimeter fencing around BFH area</td>
+                    <td>Broken glass found on site</td>
+                    <td valign="middle" align="center"><img src="https://content.api.news/v3/images/bin/0d632437c0e6530d15a7e2985368398c?width=1024" style="width:100px; height:100px;" /></td>
+                    <td class="button-cell"> <a href="edit_report.html"> <button type="button" class="btn btn-primary">Edit</button></a>
+                        <button type="button" class="btn btn-secondary" onclick="deleteMessage()">Delete</button></td>
+                </tr>
+                  <tr>
+                    <td>#12314</td>
+                    <td>On Site check and surveillance team needed</td>
+                    <td>fighting between two gangs</td>
+                    <td valign="middle" align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVWZQQLfzxs6jCft1fY4gVb30EmXngPqYmMg&usqp=CAU" style="width:100px; height:100px;" /></td>
+                    <td class="button-cell"> <a href="edit_report.html"> <button type="button" class="btn btn-primary">Edit</button></a>
+                        <button type="button" class="btn btn-secondary" onclick="deleteMessage()">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <td>#12313</td>
+                    <td>Secure perimeter fencing around BFH area</td>
+                    <td>Car accidents corner of the street</td>
+                    <td valign="middle" align="center"><img src="https://valleycollision.com/wp-content/uploads/2021/01/car-accident-causes-928x1024.jpg" style="width:100px; height:100px;" /></td>
+                    <td class="button-cell"> <a href="edit_report.html"> <button type="button" class="btn btn-primary">Edit</button></a>
+                        <button type="button" class="btn btn-secondary" onclick="deleteMessage()">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <td>#12312</td>
+                    <td>Threat assessment needed at area BHD</td>
+                    <td>Drug dealer found</td>
+                    <td valign="middle" align="center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs_IQVUcmJBGTO5RLYmrJnC4xJbPbhS0riL4oJBIebNu8hicI4rFlbkX9-kQOLXahxQV4&usqp=CAU" style="width:100px; height:100px;" /></td>
+                    <td class="button-cell"> <a href="edit_report.html"> <button type="button" class="btn btn-primary">Edit</button></a>
+                        <button type="button" class="btn btn-secondary" onclick="deleteMessage()">Delete</button></td>
+                  </tr>
+                 
+
+                
+              </tbody>
+            </table>
+         
+          </div>
+     
+      </div>
+    </div>
+  </div>
+  <div class="cleardiv"></div>
+  <!-- -->
+  <script>
+    function deleteMessage() {
+        var confirmDelete = confirm("Are you sure you want to delete this activity?");
+        if (confirmDelete) {
+           
+        }
+    }
+</script>
+</body>
+
+</html>
