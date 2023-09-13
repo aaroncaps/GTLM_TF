@@ -1,4 +1,3 @@
-let screenHeight = screen.height;
 function login(e) {
     e.preventDefault();
     const userId = document.getElementById("user-id");
