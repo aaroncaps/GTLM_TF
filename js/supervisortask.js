@@ -142,11 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Rest of your code...
-});
-// 
-
-// ... 
+}); 
 
 document.addEventListener("DOMContentLoaded", function () {
     const assignTaskButton = document.getElementById("assignTaskButton");
@@ -157,21 +153,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmation = confirm(`Assign the task to ${assigneeName}?`);
 
         if (confirmation) {
-            // User clicked "OK" in the confirmation dialog, perform the assignment
-            
-
-            // For example, after performing the assignment, you can redirect to tasks.html
             window.location.href = "tasks.html";
         } else {
-            // User clicked "Cancel" in the confirmation dialog, do nothing
         }
     }
-
-    // Add a click event listener to the Assign Task button
     assignTaskButton.addEventListener("click", function () {
         const assigneeName = assignToOutput.value;
         if (assigneeName) {
-            // Show the confirmation dialog with the assignee's name
             showConfirmationDialog(assigneeName);
         } else {
             alert("Please select an assignee before assigning the task.");
