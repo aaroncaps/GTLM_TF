@@ -1,7 +1,3 @@
-
-
-// Dummy data for the list of tasks
-
 const tasks = [
     {
         taskNumber: "T1231",
@@ -95,8 +91,9 @@ const securityOfficers = [
     "Eve Davis",
 ];
 
-//  this is for fetching so from securityofficers and displaying in the page
+// Rest of  code... this is for fetching so from securityofficers and displaying in the page
 document.addEventListener("DOMContentLoaded", function () {
+
     // Find the elements
     const assignToOutput = document.getElementById("assignToOutput");
     const assignToSearchButton = document.getElementById("assignToSearchButton");
@@ -107,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to populate the dropdown with security officer data
     function populateDropdown() {
-        assignToDropdown.innerHTML = ""; 
+        assignToDropdown.innerHTML = ""; // Clear existing options
 
         // Iterate through the security officers array and create options
         securityOfficers.forEach(function (officer) {
@@ -142,7 +139,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-}); 
+    // Rest of your code...
+});
+// 
+
+// ... 
 
 document.addEventListener("DOMContentLoaded", function () {
     const assignTaskButton = document.getElementById("assignTaskButton");
@@ -153,13 +154,21 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmation = confirm(`Assign the task to ${assigneeName}?`);
 
         if (confirmation) {
+            // User clicked "OK" in the confirmation dialog, perform the assignment
+            
+
+            // For example, after performing the assignment, you can redirect to tasks.html
             window.location.href = "tasks.html";
         } else {
+            // User clicked "Cancel" in the confirmation dialog, do nothing
         }
     }
+
+    // Add a click event listener to the Assign Task button
     assignTaskButton.addEventListener("click", function () {
         const assigneeName = assignToOutput.value;
         if (assigneeName) {
+            // Show the confirmation dialog with the assignee's name
             showConfirmationDialog(assigneeName);
         } else {
             alert("Please select an assignee before assigning the task.");
@@ -168,8 +177,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Function to create a table row for tasks
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+
+
+// Function to create a table row for tasks
+// ...
+
+// Function to create a table row for tasks
+// ...
+
+// Function to create a table row for tasks
+// Function to create a table row for tasks
 function createTableRow(task) {
     const row = document.createElement("tr");
     const taskNumberCell = document.createElement("td");
@@ -215,20 +254,25 @@ function createTableRow(task) {
 }
 
 
+// ...
 
 // Function to get the URL based on task progress
 function getTaskPageUrl(task) {
-   
+    // Define URL mapping based on task progress
     const urlMapping = {
-        "Review Task": "ReviewTask.html", 
-        "Accepted/Created Task": "Accepted.html", 
-        "Assigned & In Progress": "Assigned.html.html", 
+        "Review Task": "ReviewTask.html", // Change this URL to your review task page
+        "Accepted/Created Task": "Accepted.html", // Change this URL to your accepted task page
+        "Assigned & In Progress": "Assigned.html.html", // Change this URL to your in-progress task page
     };
 
     // Get the corresponding URL for the task's progress
-    return urlMapping[task.progress] || "#"; //
+    return urlMapping[task.progress] || "#"; // Default to "#" if no match found
 }
 
+// ...
+
+
+// ...
 
 
 // Function to populate the table with tasks
@@ -246,7 +290,9 @@ function populateTaskTable() {
 window.addEventListener("load", () => {
     populateTaskTable();
 });
-.
+// ...
+
+// ...
 
 // Function to filter tasks based on progress
 function filterTasksByProgress(progress) {
@@ -288,6 +334,8 @@ function getUrlParameter(name) {
 
 // Get the task number from the URL
 const taskNumber = getUrlParameter("taskNumber");
+
+// Define a function to fetch task data based on the task number
 function fetchTaskData(taskNumber) {
     
     const taskData = tasks.find(task => task.taskNumber === taskNumber);
@@ -306,6 +354,7 @@ if (taskData) {
     document.getElementById("details").textContent = taskData.details;
     document.getElementById("assignTo").textContent = taskData.assignedTo;
 } else {
+    // Handle the case where the task data is not found
     console.error("Task data not found.");
 }
 
