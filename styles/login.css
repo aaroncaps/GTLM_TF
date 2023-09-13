@@ -29,6 +29,7 @@ body {
     color: white;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
+    text-align: justify;
 }
 
 .left_section_content p {
@@ -134,12 +135,12 @@ body {
 }
 
 .contact_mainlink:hover,
-.contact_us:hover {
+/* .contact_us:hover {
     color: #184B81;
     background-color: #D1D5DE;
     transition: color 0.5s ease-out;
     transition: background-color 0.5s ease-out;
-}
+} */
 
 .contact_us {
     margin-top: 20px;
