@@ -45,7 +45,7 @@
         <!-- hamburger menu ends -->
         <a href="../profile/profile.html">Profile</a>
         <a href="../help_support/help_support.html">Help & Support</a>
-        <a href="../login/login.html">Logout</a>
+        <a href=>Logout</a>
       </div>
       <div class="main_content">
         <div class="mobile_menu">
@@ -62,10 +62,10 @@
             <a href="profile.html">
               <li>Profile</li>
             </a>
-            <a href="../help_support/help_support.html">
+            <a href="#">
               <li>Help & Support</li>
             </a>
-            <a href="../login/login.html">
+            <a href="#">
               <li>Logout</li>
             </a>
           </ul>
@@ -74,15 +74,21 @@
         <!-- put your code here -->
         <!-- Add filter buttons -->
 <!-- Add a dropdown menu for progress filtering -->
-<div class="filter-dropdown">
-    <label for="progressFilter">Filter by Progress:</label>
-    <select id="progressFilter">
-        <option value="all">All Tasks</option>
-        <option value="Review Task">Review Task</option>
-        <option value="Assigned & In Progress">Assigned & In Progress</option>
-        <option value="Accepted/Created Task">Accepted/Created Task</option>
-    </select>
+        <div class="view-toggle">
+    <div style="float: right;">
+        <button id="toggleViewButton" onclick="toggleView()">Switch to Kanban</button>
+    </div>
 </div>
+
+        <div class="filter-dropdown">
+            <label for="progressFilter">Filter by Progress:</label>
+            <select id="progressFilter">
+                <option value="all">All Tasks</option>
+                <option value="Review Task">Review Task</option>
+                <option value="Assigned & In Progress">Assigned & In Progress</option>
+                <option value="Accepted/Created Task">Accepted/Created Task</option>
+            </select>
+        </div>
 
 <!-- Add a container for displaying tasks -->
 <div id="taskContainer">
@@ -97,16 +103,11 @@
             </tr>
         </thead>
         <tbody id="groupTableBody">
-            <!-- table body will be created by JavaScript supervisor.js -->
+            
         </tbody>
     </table>
 </div>
-
-
         
-            <div class="right-button">
-              <button type="submit">Create Task</button> <!-- Updated button label -->
-            </div>
           </div>
         </form>
       </div>
