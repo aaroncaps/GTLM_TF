@@ -358,4 +358,49 @@ if (taskData) {
     console.error("Task data not found.");
 }
 
+function toggleView() {
+    const kanbanWrapper = document.querySelector('.kanban_wrapper');
+    const listview = document.querySelector('.ListView');
+    const col1 = document.querySelector('.col1');
+    const col2 = document.querySelector('.col2');
+    const col3 = document.querySelector('.col3');
+    const col4 = document.querySelector('.col4');
+    const dropdown = document.querySelector('.filterstatus');
+    // Check if the Kanban view is currently displayed
+    // alert(kanbanWrapper.style.display +" | "+kanbanWrapper.style.display);
+    if (kanbanWrapper.style.display === '' || kanbanWrapper.style.display === 'none') {
 
+        document.getElementById("toggleViewButton").innerText = "List View";
+        // Switch back to Kanban view
+        kanbanWrapper.style.display = 'flex';
+        listview.style.display = 'none';
+        dropdown.style.display = 'none';
+        col1.style.display = 'block';
+        col2.style.display = 'block';
+        col3.style.display = 'block';
+        col4.style.display = 'block';
+    } else {
+       // Switch to List view
+       document.getElementById("toggleViewButton").innerText = "Kanban View";
+       kanbanWrapper.style.display = 'none';
+       listview.style.display = 'block';
+       dropdown.style.display = 'block';
+       col1.style.display = 'none';
+       col2.style.display = 'none';
+       col3.style.display = 'none';
+       col4.style.display = 'none';
+    }
+}
+
+
+function init() {
+    const currentPagePath = window.location.pathname;
+    const currentPageName = currentPagePath.split("/").pop();
+    toggleView();
+    if(currentPageName == "tasks.html"){
+        document.getElementById('toggleViewButton').addEventListener('click', toggleView);
+    }
+    
+}
+
+init();

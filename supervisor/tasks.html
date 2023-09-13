@@ -11,8 +11,10 @@
 
   <!-- js -->
   <script src="../js/core.js"></script>
-  
+
   <script src="../js/supervisortask.js" defer></script>
+
+  <script src="../js/kanban.js"></script>
 
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/60ed8990c9.js" crossorigin="anonymous"></script>
@@ -70,48 +72,128 @@
             </a>
           </ul>
         </div>
-        <h2>Tasks</h2>
-        <!-- put your code here -->
-        <!-- Add filter buttons -->
-<!-- Add a dropdown menu for progress filtering -->
-        <div class="view-toggle">
-    <div style="float: right;">
-        <button id="toggleViewButton" onclick="toggleView()">Switch to Kanban</button>
-    </div>
-</div>
+        <div class="divtoggle">
+          <h2>Tasks</h2>
+          <!-- put your code here -->
+          <!-- Add filter buttons -->
+          <!-- Add a dropdown menu for progress filtering -->
 
-        <div class="filter-dropdown">
+          <div class="filterstatus">
             <label for="progressFilter">Filter by Progress:</label>
             <select id="progressFilter">
-                <option value="all">All Tasks</option>
-                <option value="Review Task">Review Task</option>
-                <option value="Assigned & In Progress">Assigned & In Progress</option>
-                <option value="Accepted/Created Task">Accepted/Created Task</option>
+              <option value="all">All Tasks</option>
+              <option value="Review Task">Review Task</option>
+              <option value="Assigned & In Progress">Assigned & In Progress</option>
+              <option value="Accepted/Created Task">Accepted/Created Task</option>
             </select>
+          </div>
+          <button class="buttoggle" id="toggleViewButton"></button>
         </div>
 
-<!-- Add a container for displaying tasks -->
-<div id="taskContainer">
-    <table>
-        <thead>
-            <tr>
-                <th>Task Number</th>
-                <th>Date Created</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th>Assigned To</th>
-            </tr>
-        </thead>
-        <tbody id="groupTableBody">
-            
-        </tbody>
-    </table>
-</div>
-        
+        <!-- Add a container for displaying tasks -->
+        <div class="kanban_wrapper">
+          <div class="col1">
+            <div class="title">Review Tasks</div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#12315</h4>
+                <p><span class="date">Date:</span> 10-12-2023</p>
+                <p><span class="taskName">Task:</span> Secure perimeter fencing around BFH area</p>
+              </div>
+            </div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#11302</h4>
+                <p><span class="date">Date:</span> 08-12-2023</p>
+                <p><span class="taskName">Task:</span> Asset surveillance required for Mr. Chong</p>
+              </div>
+            </div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#18565</h4>
+                <p><span class="date">Date:</span> 25-02-2023</p>
+                <p><span class="taskName">Task:</span> Threat assessment needed at area BHD</p>
+              </div>
+            </div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#22548</h4>
+                <p><span class="date">Date:</span> 11-12-2023</p>
+                <p><span class="taskName">Task:</span> On Site check and surveillance team needed</p>
+              </div>
+            </div>
           </div>
-        </form>
+          <div class="col2">
+            <div class="title">Accepted/Created Tasks</div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#78592</h4>
+                <p><span class="date">Date:</span> 10-12-2023</p>
+                <p><span class="taskName">Task:</span> Surveillance at AAA</p>
+              </div>
+            </div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#48556</h4>
+                <p><span class="date">Date:</span> 17-12-2023</p>
+                <p><span class="taskName">Task:</span> Surveillance at DKDD</p>
+              </div>
+            </div>
+          </div>
+          <div class="col3">
+            <div class="title">Assigned & In Progress</div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#12556</h4>
+                <p><span class="date">Date:</span> 05-12-2023</p>
+                <p><span class="taskName">Task:</span> Surveillance at DKDD</p>
+                <p><span class="assignedTo">Assigned To:</span> KK Aaron </p>
+              </div>
+            </div>
+          </div>
+          <div class="col4">
+            <div class="title">Completed</div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#11223</h4>
+                <p><span class="date">Date:</span> 06-12-2023</p>
+                <p><span class="taskName">Task:</span> Surveillance at Marion</p>
+                <p><span class="assignedTo">Assigned To:</span> David Jones </p>
+              </div>
+            </div>
+            <div class="list" draggable="false">
+              <div class="information">
+                <h4 class="taskId">#12556</h4>
+                <p><span class="date">Date:</span> 05-12-2023</p>
+                <p><span class="taskName">Task:</span> Surveillance at Adelaide Oval</p>
+                <p><span class="assignedTo">Assigned To:</span> Joe Miles </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ListView">
+          <div id="taskContainer">
+            <table>
+              <thead>
+                <tr>
+                  <th>Task Number</th>
+                  <th>Date Created</th>
+                  <th>Task</th>
+                  <th>Progress</th>
+                  <th>Assigned To</th>
+                </tr>
+              </thead>
+              <tbody id="groupTableBody">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
+    </form>
+  </div>
+  </div>
   </div>
   <div class="cleardiv"></div>
   <!-- -->
