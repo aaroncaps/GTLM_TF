@@ -22,6 +22,37 @@ function redirectToReportsGroupSoPage(userId, userName) {
     window.location.href = newUrl;
 }
 
+//cancel button t
+function cancelButton() {
+    const currentPagePath = window.location.pathname;
+    const currentPageName = currentPagePath.split("/").pop();
+    console.log("Current Page Name:", currentPageName);
+
+    if (currentPageName == 'groups_create.html' || currentPageName == 'groups_update.html') {
+        window.location.href = 'groups.html';
+    } else if (currentPageName == 'reports_group.html' || currentPageName == 'reports_group_so.html') {
+        window.location.href = 'reports.html';
+    }
+}
+
+//back button  
+function backButton() {
+    const currentPagePath = window.location.pathname;
+    const currentPageName = currentPagePath.split("/").pop();
+    console.log("Current Page Name:", currentPageName);
+    if (currentPageName == 'reports_group_so.html') {
+        window.location.href = 'reports_group.html';
+    }
+    
+
+}
+
+//clicking the logo will redirect back to task.html
+function redirecttotask(){
+    const baseUrl = 'tasks.html';
+    const newUrl = baseUrl;
+    window.location.href = newUrl;
+}
 
 //function that selects/deselects all checkbox in a table
 function selectAllCheckboxes(tableId) {
@@ -131,30 +162,6 @@ function getCheckedRowsData(tableId) {
     });
     const message = checkedRowsData.map(data => `   ${data.userId} ${data.name}`).join('\n');
     return message;
-}
-
-//cancel button that redirect to groups.html
-function cancelButton() {
-    const currentPagePath = window.location.pathname;
-    const currentPageName = currentPagePath.split("/").pop();
-    console.log("Current Page Name:", currentPageName);
-
-    if (currentPageName == 'groups_create.html' || currentPageName == 'groups_update.html') {
-        window.location.href = 'groups.html';
-    } else if (currentPageName == 'reports_group.html' || currentPageName == 'reports_group_so.html') {
-        window.location.href = 'reports.html';
-    }
-}
-
-function backButton() {
-    const currentPagePath = window.location.pathname;
-    const currentPageName = currentPagePath.split("/").pop();
-    console.log("Current Page Name:", currentPageName);
-    if (currentPageName == 'reports_group_so.html') {
-        window.location.href = 'reports_group.html';
-    }
-    
-
 }
 
 //funtion that gets all the parameters passed in a url
@@ -509,12 +516,6 @@ function displayImageLink() {
 
     const container = document.getElementById('attachedImage');
     container.appendChild(anchor);
-}
-
-function redirecttotask(){
-    const baseUrl = 'tasks.html';
-    const newUrl = baseUrl;
-    window.location.href = newUrl;
 }
 
 function init() {

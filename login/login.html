@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../styles/login_style.css"> -->
+    <!-- css -->
     <link rel="stylesheet" href="../styles/login.css">
+    <!-- js -->
+    <script src="../js/login.js" defer></script>
     <title>Login Page</title>
 </head>
 
@@ -34,10 +36,10 @@
         <div class="right_section">
             <div class="form_wrapper">
                 <h1 class="header_mobile">Task Force Security</h1>
-                <form action="#">
+                <form onsubmit="login(event)">
                     <label class="form_label" for="user-id" id="label-user-id">Username</label><br />
                     <input type="text" id="user-id" name="user-id" placeholder="Enter your Username" required><br />
-                    <label class="form_label" for="password" id="label-user-id">Password</label><br />
+                    <label class="form_label" for="password" id="label-user-password">Password</label><br />
                     <input type="password" id="password" name="password" placeholder="Enter your Password"
                         required><br />
                     <button type="submit" class="login-button">Login</button>
