@@ -160,7 +160,7 @@ Insert your new class/id below and write your name
     background-color: #dadada;
     padding: 10px;
     display: flex;
-    cursor: grab;
+    /* cursor: grab; */
     border-radius: 5px;
 }
 
