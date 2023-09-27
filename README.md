@@ -7,5 +7,5 @@ Password:
 Please use the following passwords depending on the role
 Administrator   : admin
 Dispatcher      : dis
-Supevisor       : super
+Supervisor       : super
 Security Officer: so
